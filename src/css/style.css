@@ -1,6 +1,15 @@
 /* General purpose stuff */
 body {
     margin: 0;
+    color: #222222;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
 }
 
 /* Header */
@@ -31,6 +40,7 @@ body {
     width: 100%;
     max-width: 60em;
     align-self: center;
+    font-family: CaveStory, sans-serif;
 }
 
 #header .red-stripe {
@@ -65,6 +75,7 @@ body {
 
 #header nav {
     padding-bottom: 1em;
+    font-size: 2em;
 }
 
 #header nav a {
