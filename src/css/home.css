@@ -1,0 +1,42 @@
+/* Header */
+header {
+    position: relative;
+    background: url("../img/LaDéfenseArcDeTriomphe_4K.png") center;
+    background-size: cover;
+    height: 100vh;
+}
+
+header h1 {
+    font-size: 4em;
+    margin: 0.5em;
+}
+
+header .logo {
+    height: 6em;
+    margin: 0;
+    display: inherit;
+}
+
+header h2 {
+    display: block;
+    font-size: 2em;
+}
+
+
+#header-content {
+    background-color: rgba(255, 255, 255, 80%);
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
+header nav {
+    margin-top: 1em;
+    padding-bottom: 1em;
+    font-size: 2em;
+}
+
+header nav a {
+    line-height: 1.5em;
+    padding: 1em;
+}
