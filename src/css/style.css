@@ -20,14 +20,47 @@ body {
 #header-content {
     background-image: linear-gradient(
             to right,
-            rgba(255, 255, 255, 0%),
+            rgba(255, 255, 255, 10%),
             rgba(255, 255, 255, 80%),
             rgba(255, 255, 255, 80%),
             rgba(255, 255, 255, 80%),
             rgba(255, 255, 255, 80%),
-            rgba(255, 255, 255, 0%));
+            rgba(255, 255, 255, 10%));
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
+    max-width: 60em;
     align-self: center;
+}
+
+#header .red-stripe {
+    width: 100%;
+    height: .5em;
+    background-image: linear-gradient(
+            to right,
+            rgba(255, 0, 0, 20%),
+            rgba(255, 0, 0, 80%),
+            rgba(255, 0, 0, 80%),
+            rgba(255, 0, 0, 80%),
+            rgba(255, 0, 0, 80%),
+            rgba(255, 0, 0, 80%),
+            rgba(255, 0, 0, 80%),
+            rgba(255, 0, 0, 20%));
+}
+
+#header .blue-stripe {
+    width: 100%;
+    height: .5em;
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 255, 20%),
+            rgba(0, 0, 255, 80%),
+            rgba(0, 0, 255, 80%),
+            rgba(0, 0, 255, 80%),
+            rgba(0, 0, 255, 80%),
+            rgba(0, 0, 255, 80%),
+            rgba(0, 0, 255, 80%),
+            rgba(0, 0, 255, 20%));
 }
 
 #header nav {
