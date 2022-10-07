@@ -1,0 +1,44 @@
+/* General purpose stuff */
+body {
+    margin: 0;
+}
+
+/* Header */
+#header {
+    display: flex;
+    background: url("../img/LaDéfenseArcDeTriomphe_4K.png") center;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#header .logo {
+    width: 128px;
+}
+
+#header-content {
+    background-image: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0%),
+            rgba(255, 255, 255, 80%),
+            rgba(255, 255, 255, 80%),
+            rgba(255, 255, 255, 80%),
+            rgba(255, 255, 255, 80%),
+            rgba(255, 255, 255, 0%));
+    width: 100%;
+    align-self: center;
+}
+
+#header nav {
+    padding-bottom: 1em;
+}
+
+#header nav a {
+    padding: 1em;
+}
+
+/* Description */
+#description {
+
+}
