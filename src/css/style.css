@@ -27,18 +27,10 @@ h2 {
 }
 
 #header-content {
-    background-image: linear-gradient(
-            to right,
-            rgba(255, 255, 255, 10%),
-            rgba(255, 255, 255, 80%),
-            rgba(255, 255, 255, 80%),
-            rgba(255, 255, 255, 80%),
-            rgba(255, 255, 255, 80%),
-            rgba(255, 255, 255, 10%));
+    background-color: rgba(255, 255, 255, 80%);
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 60em;
     align-self: center;
     font-family: CaveStory, sans-serif;
 }
