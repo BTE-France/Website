@@ -68,7 +68,7 @@ header h2 {
 }
 
 header nav a {
-    transition: font-size 500ms, margin-top 500ms;
+    transition: font-size 500ms, margin-top 500ms, color, 500ms;
 }
 
 /* Filler */
