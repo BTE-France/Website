@@ -1,42 +1,79 @@
-/* Header */
-header {
-    position: relative;
-    background: url("../img/LaDéfenseArcDeTriomphe_4K.png") center;
-    background-size: cover;
+/* Deployed Header */
+header[data-collapsed="no"] {
+    position: absolute;
     height: 100vh;
 }
 
-header h1 {
+header[data-collapsed="no"] h1 {
     font-size: 4em;
     margin: 0.5em;
 }
 
-header .logo {
+header[data-collapsed="no"] .logo {
     height: 6em;
     margin: 0;
     display: inherit;
 }
 
-header h2 {
+header[data-collapsed="no"] h2 {
+    color: rgba(0, 38, 84, 100%);
     display: block;
     font-size: 2em;
 }
 
-
-#header-content {
+header[data-collapsed="no"] #header-content {
     background-color: rgba(255, 255, 255, 80%);
     margin-left: auto;
     margin-right: auto;
     align-self: center;
 }
 
-header nav {
+header[data-collapsed="no"] {
+    background-color: rgba(255, 255, 255, 0%);
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
+header[data-collapsed="no"] nav {
     margin-top: 1em;
     padding-bottom: 1em;
     font-size: 2em;
 }
 
-header nav a {
+header[data-collapsed="no"] nav a {
     line-height: 1.5em;
     padding: 1em;
+}
+
+/* Header transitions */
+
+header .logo {
+    transition: height 500ms;
+}
+
+#header-content {
+    transition: background-color 500ms;
+}
+
+header h1 {
+    transition: font-size 500ms;
+}
+
+header h2 {
+    font-size: 0;
+    color: rgba(0, 38, 84, 0%);
+    display: inherit;
+    transition: font-size 500ms, color 500ms;
+}
+
+header nav a {
+    transition: font-size 500ms, margin-top 500ms;
+}
+
+/* Filler */
+#filler {
+    background: url("../img/LaDéfenseArcDeTriomphe_4K.png") center;
+    background-size: cover;
+    height: 100vh;
 }
