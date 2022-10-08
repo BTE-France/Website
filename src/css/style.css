@@ -60,6 +60,12 @@ header nav {
 header nav a {
     padding: 1em;
     color: rgb(0, 38, 84);
+    transition: color, 500ms;
+    text-decoration-color: rgb(206, 17, 38);
+}
+
+header nav a:hover {
+    color: rgb(119, 22, 63);
     text-decoration-color: rgb(206, 17, 38);
 }
 
