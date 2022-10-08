@@ -10,9 +10,18 @@ header[data-collapsed="no"] h1 {
 }
 
 header[data-collapsed="no"] .logo {
-    height: 6em;
-    margin: 0;
-    display: inherit;
+    width: 5em;
+    height: auto;
+    margin: auto;
+}
+
+header[data-collapsed="no"] .img-link {
+    width: 5em;
+    margin: auto;
+}
+
+header[data-collapsed="no"] #burger-button {
+    display: none;
 }
 
 header[data-collapsed="no"] h2 {
@@ -44,6 +53,30 @@ header[data-collapsed="no"] nav {
 header[data-collapsed="no"] nav a {
     line-height: 1.5em;
     padding: 1em;
+}
+
+/* Header - Mobile */
+@media only screen and (max-width: 700px) {
+
+    header[data-collapsed="no"] nav {
+        margin-top: 0;
+        font-size: 2em;
+    }
+
+    header[data-collapsed="no"] nav a {
+        margin: 0;
+        padding: 0.25em;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    header[data-collapsed="no"] nav a {
+        padding: 0.25em;
+        font-size: 0.75em;
+    }
+
 }
 
 /* Header transitions */

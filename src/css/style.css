@@ -8,6 +8,11 @@ html {
     scroll-behavior: smooth;
 }
 
+.img-link {
+    display: block;
+    width: 0;
+}
+
 /* Header */
 header {
     position: fixed;
@@ -24,6 +29,8 @@ header h1 {
 
 header h2 {
     display: none;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 header .logo {
@@ -69,9 +76,50 @@ header nav a:hover {
     text-decoration-color: rgb(206, 17, 38);
 }
 
+#burger-button {
+    display: none;
+}
+
 /* Filler */
 #filler {
     height: 8em;
+}
+
+/* Header - Mobile */
+@media only screen and (max-width: 700px) {
+
+    header .logo {
+        margin-bottom: 0.5em;
+        height: 2em;
+    }
+
+    header nav[data-collapsed="no"] {
+        margin-top: 1em;
+        font-size: 3em;
+    }
+
+    header nav[data-collapsed="yes"] {
+        margin-top: 0;
+        font-size: 0;
+    }
+
+    header nav a {
+        display: block;
+        margin: 0;
+        padding: 0.5em;
+    }
+
+    #burger-button {
+        display: inherit;
+        margin: -2.5em 0.5em 0.5em auto;
+        height: 2em;
+        cursor: pointer;
+    }
+
+    #filler {
+        height: 5em;
+    }
+
 }
 
 /* Content */

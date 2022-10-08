@@ -5,17 +5,17 @@
   <title>BTE France</title>
   <link rel="stylesheet" media="screen" href="css/fonts.css" type="text/css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header>
+<header data-collapsed="yes">
   <div id="header-content">
     <div class="blue-stripe"></div>
     <h1>BTE France</h1>
-    <a href="index.html"><img class="logo" src="img/logo.png" alt="BTE France logo"></a>
+    <a href="index.html" class="img-link"><img class="logo" src="img/logo.png" alt="BTE France logo"></a>
     <h2>We build France in Minecraft, one to one scale.</h2>
-    <nav>
+    <img src="img/Burger.svg" alt="Burger button" id="burger-button" onclick="toggleMobileMenu()">
+    <nav data-collapsed="yes">
       <a href="index.html">Home</a>
       <a href="join-us.html">Join Us</a>
       <a href="maps.html">Maps</a>
@@ -133,5 +133,6 @@
     </div>
   </article>
 </main>
+<script src="js/styling.js"></script>
 </body>
 </html>
