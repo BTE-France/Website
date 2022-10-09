@@ -125,7 +125,32 @@ header nav a:hover {
 /* Content */
 
 main {
-    margin: 1em
+    max-width: 100em;
+    margin: 1em auto;
+}
+
+article {
+    margin: 3em;
+}
+
+.illustrated-paragraph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustrated-paragraph h3 {
+    display: contents;
+}
+
+.article-content {
+    text-align: center;
+    padding: 2em;
+}
+
+.illustration {
+    max-width: 40%;
+    box-shadow: 0 0 2em 0.25em rgba(0, 0, 0, 0.29);
 }
 
 .main-content {
@@ -150,4 +175,54 @@ main {
 .main-content span {
     font-size: 2em;
     margin: 1em;
+}
+
+.social-media-account {
+    display: inline;
+}
+
+.social-media-account img {
+    display: inline;
+    width: 5em;
+    margin: 1em;
+}
+
+.social-media-account-alone img {
+    display: block;
+    width: 7em;
+    margin: 2em auto;
+}
+
+/* Content - Mobile */
+
+@media only screen and (max-width: 700px) {
+
+    .main-content h2 {
+        font-size: 3em;
+    }
+
+    .illustrated-paragraph {
+        flex-direction: column;
+    }
+
+    .article-content {
+        padding: 1em;
+    }
+
+    .illustration {
+        max-width: 100%;
+    }
+
+    article {
+        margin: 1em;
+    }
+
+    .social-media-account img {
+        width: 3em;
+    }
+
+    .social-media-account-alone img {
+        width: 5em;
+    }
+
 }
