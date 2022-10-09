@@ -5,6 +5,7 @@
   <title>BTE France</title>
   <link rel="stylesheet" media="screen" href="css/fonts.css" type="text/css"/>
   <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/gallery.css" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -26,34 +27,23 @@
 </header>
 <div id="filler"></div>
 <main>
-  <article class="illustrated-paragraph">
-    <div class="article-content">
-      <h3>Lorem ipsum</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed libero ut mauris sollicitudin semper ac id nulla. Proin at elit facilisis, facilisis sem rhoncus, hendrerit massa. Sed tincidunt sem eu tortor laoreet, id accumsan erat condimentum. Morbi lacus mi, tempus quis tincidunt quis, bibendum sit amet quam. Praesent cursus scelerisque tellus et egestas. Suspendisse volutpat posuere mi in fringilla. Nam finibus blandit tortor ut bibendum. Vestibulum suscipit urna in erat tristique aliquam. Integer tincidunt ornare enim ut vestibulum. Donec quis convallis ex. Nulla quam dui, aliquam eget porttitor sed, pretium gravida lorem. Maecenas vitae dolor at nunc maximus blandit. Aenean quam nulla, rhoncus at ipsum et, bibendum lobortis dui. Nullam eleifend, velit ac dignissim faucibus, est tortor tempus tellus, at ullamcorper justo dui non dolor. Nullam mauris nisl, pellentesque non tempus ut, dignissim ac ligula.
-      </p>
+  <article class="carousel">
+    <h2>
+      Carousel title
+    </h2>
+    <div class="carousel-list">
     </div>
-    <img src="img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
+    <button class="carousel-scroll carousel-left" onclick="carrousel.previous()">
+      <
+    </button>
+    <button class="carousel-scroll carousel-right" onclick="carrousel.next()">
+      >
+    </button>
   </article>
-  <article class="illustrated-paragraph">
-    <div class="article-content">
-      <h3>Lorem ipsum</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed libero ut mauris sollicitudin semper ac id nulla. Proin at elit facilisis, facilisis sem rhoncus, hendrerit massa. Sed tincidunt sem eu tortor laoreet, id accumsan erat condimentum. Morbi lacus mi, tempus quis tincidunt quis, bibendum sit amet quam. Praesent cursus scelerisque tellus et egestas. Suspendisse volutpat posuere mi in fringilla. Nam finibus blandit tortor ut bibendum. Vestibulum suscipit urna in erat tristique aliquam. Integer tincidunt ornare enim ut vestibulum. Donec quis convallis ex. Nulla quam dui, aliquam eget porttitor sed, pretium gravida lorem. Maecenas vitae dolor at nunc maximus blandit. Aenean quam nulla, rhoncus at ipsum et, bibendum lobortis dui. Nullam eleifend, velit ac dignissim faucibus, est tortor tempus tellus, at ullamcorper justo dui non dolor. Nullam mauris nisl, pellentesque non tempus ut, dignissim ac ligula.
-      </p>
-    </div>
-    <img src="img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
-  </article>
-  <article class="illustrated-paragraph">
-    <div class="article-content">
-      <h3>Lorem ipsum</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed libero ut mauris sollicitudin semper ac id nulla. Proin at elit facilisis, facilisis sem rhoncus, hendrerit massa. Sed tincidunt sem eu tortor laoreet, id accumsan erat condimentum. Morbi lacus mi, tempus quis tincidunt quis, bibendum sit amet quam. Praesent cursus scelerisque tellus et egestas. Suspendisse volutpat posuere mi in fringilla. Nam finibus blandit tortor ut bibendum. Vestibulum suscipit urna in erat tristique aliquam. Integer tincidunt ornare enim ut vestibulum. Donec quis convallis ex. Nulla quam dui, aliquam eget porttitor sed, pretium gravida lorem. Maecenas vitae dolor at nunc maximus blandit. Aenean quam nulla, rhoncus at ipsum et, bibendum lobortis dui. Nullam eleifend, velit ac dignissim faucibus, est tortor tempus tellus, at ullamcorper justo dui non dolor. Nullam mauris nisl, pellentesque non tempus ut, dignissim ac ligula.
-      </p>
-    </div>
-    <img src="img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
+  <article class="gallery">
   </article>
 </main>
 <script src="js/styling.js"></script>
+<script src="js/gallery.js"></script>
 </body>
 </html>
