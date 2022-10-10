@@ -16,6 +16,8 @@ main {
 .gallery-entry {
     display: block;
     margin: 1vw;
+    max-height: 50vh;
+    max-width: 45vw;
 }
 
 .gallery-image {

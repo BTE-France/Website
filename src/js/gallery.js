@@ -20,9 +20,19 @@ class Gallery {
         img.onload = _ => {
             img.classList.add("gallery-image");
             div.classList.remove("gallery-loading");
+            div.style.width = div.style.height = "";
             div.appendChild(img);
         };
-        //TODO Set gallery images width and height from json
+        let imgWidth = entryJson["width"];
+        let imgHeight = entryJson["height"];
+        if (imgWidth && imgHeight) {
+            div.style.aspectRatio = imgWidth + "/" + imgHeight;
+            if (imgWidth > imgHeight) {
+                div.style.width = entryJson["width"] + "px";
+            } else {
+                div.style.height = entryJson["height"] + "px";
+            }
+        }
         img.src = entryJson["url"];
         this.element.appendChild(div);
     }
