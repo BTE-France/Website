@@ -20,7 +20,7 @@ class Gallery {
         img.onload = _ => {
             img.classList.add("gallery-image");
             div.classList.remove("gallery-loading");
-            div.style.width = div.style.height = "";
+            div.style.width = div.style.height = div.style.aspectRatio = "";
             div.appendChild(img);
         };
         let imgWidth = entryJson["width"];
@@ -34,6 +34,26 @@ class Gallery {
             }
         }
         img.src = entryJson["url"];
+        let info = document.createElement("div");
+        info.classList.add("gallery-info");
+        info.innerHTML =
+            '<h4></h4>' +
+            '<button class="download"></button>' +
+            '<p></p>' +
+            '<img src="img/camera.svg" class="camera" alt="">' +
+            '<span class="author"></span>' +
+            '<img src="img/axe.svg" class="axe" alt="">' +
+            '<span class="builders"></span>'
+        ;
+        let title = info.querySelector("h4");
+        let description = info.querySelector("p");
+        let author = info.querySelector(".author");
+        let builders = info.querySelector(".builders");
+        title.innerText = entryJson["name"];
+        description.innerText = entryJson["description"];
+        author.innerText = entryJson["author"];
+        builders.innerText = entryJson["builders"].join(", ");
+        div.appendChild(info);
         this.element.appendChild(div);
     }
 
