@@ -45,6 +45,7 @@ header .logo {
 #header-content {
     width: 100%;
     font-family: CaveStory, sans-serif;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.61);
 }
 
 header .blue-stripe {
@@ -79,6 +80,10 @@ header nav a:hover {
 
 #burger-button {
     display: none;
+}
+
+.language {
+    text-decoration: none;
 }
 
 /* Filler */
