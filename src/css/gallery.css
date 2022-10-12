@@ -73,24 +73,37 @@ main {
     background: url("../img/download.svg") center;
     background-size: 1.5em;
     top: 1em;
+    right: 3.5em;
+}
+
+.gallery-button.fullscreen {
+    background: url("../img/fullscreen.svg") center no-repeat;
+    background-size: 1.5em;
+    top: 1em;
     right: 1em;
 }
 
 .gallery-button.close {
     display: none;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 3000;
+    color: white;
+    font-size: 2em;
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0);
+    filter: none;
 }
 
 .gallery-button.info {
+    display: none; /* Only shown on mobile */
     font-family: RobotoSlab, serif;
     color: #606060;
     background: none;
     font-size: 1.6em;
     top: 0.15em;
-    right: 1.5em;
-}
-
-.gallery-button.info {
-    display: none;
+    right: 2.5em;
 }
 
 .gallery-info p {
@@ -132,6 +145,31 @@ main {
     right: 2.5em;
 }
 
+.image-fullscreen .gallery-info {
+    opacity: 100%;
+    position: fixed;
+    z-index: 2000;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.92);
+}
+
+.image-fullscreen p, .image-fullscreen span, .image-fullscreen button, .image-fullscreen img, .image-fullscreen h4 {
+    display: none;
+}
+
+.image-fullscreen .gallery-image {
+    display: unset;
+    position: fixed;
+    max-width: 100vw;
+    max-height: 100vh;
+    z-index: 2000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 /* Mobile */
 @media only screen and (max-width: 700px) {
 
@@ -152,14 +190,15 @@ main {
     .gallery-info {
         opacity: 100%;
         color: #606060;
+        bottom: unset;
+    }
+
+    .image-fullscreen .gallery-info {
+        bottom: 0;
     }
 
     .gallery-button.info {
         display: unset;
-    }
-
-    .gallery-info:hover {
-        background: none;
     }
 
     .gallery-info p {
@@ -167,7 +206,7 @@ main {
         opacity: 0;
     }
 
-    .gallery-info .download, .gallery-info .camera, .gallery-info .axe {
+    .gallery-info button, .gallery-info .camera, .gallery-info .axe {
         filter: brightness(30%);
     }
 
@@ -211,6 +250,7 @@ main {
         font-size: 2em;
         background-image: none;
         background-color: rgba(255, 255, 255, 0);
+        filter: none;
     }
 
 }

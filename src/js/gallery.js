@@ -52,6 +52,7 @@ class GalleryEntry {
             '<h4></h4>' +
             '<button class="gallery-button info">i</button>' +
             '<button class="gallery-button download"></button>' +
+            '<button class="gallery-button fullscreen"></button>' +
             '<p></p>' +
             '<button class="gallery-button close">X</button>' +
             '<img src="img/camera.svg" class="camera" alt="">' +
@@ -63,8 +64,10 @@ class GalleryEntry {
         this.description = this.info.querySelector("p");
         this.author = this.info.querySelector(".author");
         this.builders = this.info.querySelector(".builders");
+        this.img.onclick = _ => {this.toggleImageFullscreen()};
+        this.info.querySelector(".fullscreen").onclick = _ => {this.showImageFullscreen()};
         this.info.querySelector(".info").onclick = _ => {this.showDescriptionFullscreen()};
-        this.info.querySelector(".close").onclick = _ => {this.closeDescriptionFullscreen()};
+        this.info.querySelector(".close").onclick = _ => {this.closeFullscreen()};
         this.element.appendChild(this.info);
     }
 
@@ -123,12 +126,25 @@ class GalleryEntry {
         this.element.classList.add("no-top-border");
     }
 
+    showImageFullscreen() {
+        this.element.classList.add("image-fullscreen");
+    }
+
     showDescriptionFullscreen() {
         this.element.classList.add("description-fullscreen");
     }
 
-    closeDescriptionFullscreen() {
+    closeFullscreen() {
         this.element.classList.remove("description-fullscreen");
+        this.element.classList.remove("image-fullscreen");
+    }
+
+    toggleImageFullscreen() {
+        if (this.element.classList.contains("image-fullscreen")) {
+            this.element.classList.remove("image-fullscreen");
+        } else {
+            this.element.classList.add("image-fullscreen");
+        }
     }
 
 }
