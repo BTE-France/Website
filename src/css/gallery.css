@@ -61,15 +61,36 @@ main {
     top: 0;
 }
 
-.gallery-info .download {
-    background: url("../img/download.svg") center;
+.gallery-button {
     background-size: 1.5em;
     border: none;
     width: 1.5em;
     height: 1.5em;
     position: absolute;
+}
+
+.gallery-button.download {
+    background: url("../img/download.svg") center;
+    background-size: 1.5em;
     top: 1em;
     right: 1em;
+}
+
+.gallery-button.close {
+    display: none;
+}
+
+.gallery-button.info {
+    font-family: RobotoSlab, serif;
+    color: #606060;
+    background: none;
+    font-size: 1.6em;
+    top: 0.15em;
+    right: 1.5em;
+}
+
+.gallery-button.info {
+    display: none;
 }
 
 .gallery-info p {
@@ -80,6 +101,7 @@ main {
     overflow-y: auto;
     padding: 0.5em;
     color: rgba(255, 255, 255, 0.85);
+    transition: opacity 200ms;
 }
 
 .gallery-info .author {
@@ -110,72 +132,89 @@ main {
     right: 2.5em;
 }
 
-/* Carousel */
-.carousel {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.93);
+/* Mobile */
+@media only screen and (max-width: 700px) {
+
+    .gallery-entry {
+        max-width: 90vw;
+        width: 90vw;
+        padding-top: 5em;
+        padding-bottom: 1em;
+        border-top: solid 0.1em rgba(128, 128, 128, 0.77);
+    }
+
+    .gallery-image {
+        max-width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gallery-info {
+        opacity: 100%;
+        color: #606060;
+    }
+
+    .gallery-button.info {
+        display: unset;
+    }
+
+    .gallery-info:hover {
+        background: none;
+    }
+
+    .gallery-info p {
+        display: none;
+        opacity: 0;
+    }
+
+    .gallery-info .download, .gallery-info .camera, .gallery-info .axe {
+        filter: brightness(30%);
+    }
+
+    .gallery-info .camera, .gallery-info .axe {
+        bottom: unset;
+        top: 2.5em;
+    }
+
+    .gallery-info .author {
+        bottom: unset;
+        top: 2.2em;
+    }
+
+    .gallery-info .builders {
+        bottom: unset;
+        top: 2.8em;
+    }
+
+    .description-fullscreen p {
+        display: block;
+        opacity: 100%;
+        position: fixed;
+        z-index: 2000;
+        margin: 0;
+        padding: 8em 1em 1em;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.91);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .description-fullscreen .close {
+        display: unset;
+        position: fixed;
+        top: 1em;
+        right: 1em;
+        z-index: 2001;
+        color: white;
+        font-size: 2em;
+        background-image: none;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
 }
 
-.carousel-list {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    align-content: center;
-    top: 5em;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transition: right 500ms;
-}
-
-.carousel-list img {
-    display: inline;
-    max-width: 80vw;
-    max-height: 90%;
-    margin: 0.5em;
-}
-
-.carousel h2 {
-    color: white;
-    width: 100vw;
-    text-align: center;
-}
-
-.carousel-scroll {
-    position: fixed;
-    bottom: 0;
-    height: 100vh;
-    width: 3em;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    color: white;
-    font-size: 2em;
-}
-
-.carousel-left {
-    text-align: left;
-    padding-left: 1em;
-    left: 0;
-    background-image: linear-gradient(to right, #000000, rgba(0, 0, 0, 80%), rgba(0, 0, 0, 0%));
-}
-
-.carousel-right {
-    padding-right: 1em;
-    text-align: right;
-    right: 0;
-    background-image: linear-gradient(to left, #000000, rgba(0, 0, 0, 80%), rgba(0, 0, 0, 0%));
-}
-
-.carousel-filler {
-    flex-shrink: inherit;
-    min-width: 100vw;
-    height: 100vh;
+.no-top-border {
+    border-top: none;
 }

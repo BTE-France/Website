@@ -1,6 +1,7 @@
 class Gallery {
     
     element;
+    entries = [];
 
     constructor(element) {
         this.element = element;
@@ -13,88 +14,119 @@ class Gallery {
     }
 
     addEntry(entryJson) {
-        let div = document.createElement("div");
-        div.classList.add("gallery-entry");
-        div.classList.add("gallery-loading");
-        let img = document.createElement("img");
-        img.onload = _ => {
-            img.classList.add("gallery-image");
-            div.classList.remove("gallery-loading");
-            div.style.width = div.style.height = div.style.aspectRatio = "";
-            div.appendChild(img);
-        };
-        let imgWidth = entryJson["width"];
-        let imgHeight = entryJson["height"];
-        if (imgWidth && imgHeight) {
-            div.style.aspectRatio = imgWidth + "/" + imgHeight;
-            if (imgWidth > imgHeight) {
-                div.style.width = entryJson["width"] + "px";
-            } else {
-                div.style.height = entryJson["height"] + "px";
-            }
+        let entry = new GalleryEntry();
+        entry.setTitle(entryJson["name"]);
+        entry.setDescription(entryJson["description"]);
+        entry.setImageSize(entryJson["width"], entryJson["height"]);
+        entry.setAuthor(entryJson["author"]);
+        entry.setBuilders(entryJson["builders"].join(", "));
+        entry.loadImage(entryJson["url"]);
+        this.element.appendChild(entry.getElement());
+        if (!this.entries.length) {
+            entry.hideSeparator();
         }
-        img.src = entryJson["url"];
-        let info = document.createElement("div");
-        info.classList.add("gallery-info");
-        info.innerHTML =
+        this.entries.push(entry);
+    }
+
+}
+
+class GalleryEntry {
+
+    parent;
+    element;
+    info;
+    title;
+    description;
+    author;
+    builders;
+
+    constructor(parent) {
+        this.parent = parent;
+        this.element = document.createElement("div");
+        this.element.classList.add("gallery-entry");
+        this.element.classList.add("gallery-loading");
+        this.img = document.createElement("img");
+        this.info = document.createElement("div");
+        this.info.classList.add("gallery-info");
+        this.info.innerHTML =
             '<h4></h4>' +
-            '<button class="download"></button>' +
+            '<button class="gallery-button info">i</button>' +
+            '<button class="gallery-button download"></button>' +
             '<p></p>' +
+            '<button class="gallery-button close">X</button>' +
             '<img src="img/camera.svg" class="camera" alt="">' +
             '<span class="author"></span>' +
             '<img src="img/axe.svg" class="axe" alt="">' +
             '<span class="builders"></span>'
         ;
-        let title = info.querySelector("h4");
-        let description = info.querySelector("p");
-        let author = info.querySelector(".author");
-        let builders = info.querySelector(".builders");
-        title.innerText = entryJson["name"];
-        description.innerText = entryJson["description"];
-        author.innerText = entryJson["author"];
-        builders.innerText = entryJson["builders"].join(", ");
-        div.appendChild(info);
-        this.element.appendChild(div);
+        this.title = this.info.querySelector("h4");
+        this.description = this.info.querySelector("p");
+        this.author = this.info.querySelector(".author");
+        this.builders = this.info.querySelector(".builders");
+        this.info.querySelector(".info").onclick = _ => {this.showDescriptionFullscreen()};
+        this.info.querySelector(".close").onclick = _ => {this.closeDescriptionFullscreen()};
+        this.element.appendChild(this.info);
     }
 
-}
+    setImageSize(width, height) {
+        if (width && height) {
+            this.element.style.aspectRatio = width + "/" + height;
+            if (width > height) {
+                this.element.style.width = width + "px";
+            } else {
+                this.element.style.height = height + "px";
+            }
+        } else {
+            this.element.style.width = "1280px";
+            this.element.style.aspectRatio = "16/9";
+        }
+    }
 
-class Carousel {
+    loadImage(src) {
+        this.img.onload = _ => {
+            this.img.classList.add("gallery-image");
+            this.element.classList.remove("gallery-loading");
+            this.element.style.width = this.element.style.height = this.element.style.aspectRatio = "";
+            this.element.appendChild(this.img);
+        };
+        this.img.src = src;
+    }
 
-    element;
-    imageElements;
-    index = 1;
+    setTitle(title) {
+        this.title.innerText = title;
+    }
 
-    constructor(element) {
-        this.element = element;
-        this.imageElements = element.querySelector(".carousel-list");
-        this.imageElements.onresize = _ => {this.setIndex(this.index)};
-        let oldResize = window.onresize;
-        window.onresize = _ => {oldResize(_); this.setIndex(this.index)};
+    setDescription(description) {
+        this.description.innerText = description;
     }
-    
-    setIndex(index) {
-        this.index = index;
-        let image = this.imageElements.children[this.index];
-        let imageBB = image.getBoundingClientRect();
-        let delta = - imageBB.x + window.innerWidth / 2 - imageBB.width / 2;
-        console.log(delta + "px");
-        this.imageElements.style.right = delta + "px";
+
+    setAuthor(author) {
+        this.author.innerText = author;
     }
-    
-    next() {
-        this.setIndex(Math.min(this.imageElements.childElementCount - 3, this.index + 1));
+
+    setBuilders(builders) {
+        this.builders.innerText = builders;
     }
-    
-    previous() {
-        this.setIndex(Math.max(1, this.index - 1));
+
+    getElement() {
+        return this.element;
     }
-    
+
+    hideSeparator() {
+        this.element.classList.add("no-top-border");
+    }
+
+    showDescriptionFullscreen() {
+        this.element.classList.add("description-fullscreen");
+    }
+
+    closeDescriptionFullscreen() {
+        this.element.classList.remove("description-fullscreen");
+    }
+
 }
 
 const gallery = new Gallery(document.querySelector(".gallery"));
-//const carrousel = new Carousel(document.querySelector(".carousel"));
 window.addEventListener('DOMContentLoaded',_ => {
-    //carrousel.setIndex(1);
     gallery.loadJson();
 });

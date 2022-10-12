@@ -5,11 +5,16 @@
     font-style: normal;
 }
 
-/* The following rules are deprecated. */
-
 @font-face {
     font-family: 'CaveStory';
     src: url('../fonts/CaveStory.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('../fonts/RobotoSlab.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
