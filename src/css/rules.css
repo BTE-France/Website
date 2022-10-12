@@ -88,10 +88,31 @@ h2 {
     color: #51267e;
 }
 
+.discord-rules a {
+    color: #7b06f6;
+}
+
 .minecraft-rules {
     color: #016201;
     border-color: #016201;
     background-color: #daffeb;
+}
+
+.minecraft-rules a {
+    color: #00b400;
+}
+
+.subsection {
+    padding-bottom: 2em;
+}
+
+.subsection ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.subsection li {
+    padding-bottom: 0.1em;
 }
 
 @media only screen and (max-width: 700px) {

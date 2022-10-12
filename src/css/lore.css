@@ -71,10 +71,27 @@
     padding-top: 0.2em;
     padding-left: 0.2em;
     padding-right: 0.2em;
+    white-space: nowrap
 }
 
 .discord-channel::before {
     content: "#";
+}
+
+.discord-user {
+    color: #505cdc;
+    background-color: #e6e8fd;
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: unset;
+    border-radius: 2px;
+    padding-top: 0.2em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    white-space: nowrap
+}
+
+.discord-user::before {
+    content: "@";
 }
 
 .emphasis {
