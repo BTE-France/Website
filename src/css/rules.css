@@ -1,0 +1,103 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.rules-header {
+    max-width: 90vw;
+    width: 72em;
+    box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
+    border: solid;
+    margin: 1em;
+    text-align: center;
+    padding: 1.5em;
+    border-radius: 0 1em 1em 0;
+}
+
+.rules-header::before {
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    left: -1em;
+    width: 1em;
+    font-family: RobotoSlab, sans-serif;
+    font-size: 2em;
+    padding: 0.5em 0 0;
+    border-radius: 1em 0 0 1em;
+    color: white;
+}
+
+.rules-column {
+    padding: 1em 2em 1em 1em;
+    width: 35em;
+    max-width: 40vw;
+    border: solid;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
+    margin: 1em auto;
+}
+
+.rules-column h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.rules-column li {
+    padding-bottom: 1em;
+}
+
+.rules-dangerous {
+    color: #8d0303;
+    background-color: #ffe8e8;
+    border-color: #ea4242;
+    position: relative;
+    margin-left: 3em;
+}
+
+.rules-dangerous a {
+    color: #e50707;
+}
+
+.rules-dangerous::before {
+    content: "!";
+    background-color: #ea4242;
+}
+
+.rules-info {
+    color: #00208b;
+    background-color: #effafd;
+    border-color: #425eea;
+    position: relative;
+    margin-left: 3em;
+}
+
+.rules-info::before {
+    content: "i";
+    background-color: #425eea;
+}
+
+.discord-rules {
+    border-color: #643098;
+    background-color: #e9e0fb;
+    color: #51267e;
+}
+
+.minecraft-rules {
+    color: #016201;
+    border-color: #016201;
+    background-color: #daffeb;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .rules-column {
+        max-width: 90vw;
+    }
+
+}

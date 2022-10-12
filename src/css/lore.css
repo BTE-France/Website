@@ -1,0 +1,82 @@
+/* Ranks */
+
+.visitor {
+    font-weight: bold;
+    color: #797979;
+}
+
+.beginner {
+    font-weight: bold;
+    color: #6aa84f;
+}
+
+.builder {
+    font-weight: bold;
+    color: #79a4ea;
+}
+
+.foreman {
+    font-weight: bold;
+    color: #1b5cce;
+}
+
+.architect {
+    font-weight: bold;
+    color: #0e5595;
+}
+
+.engineer {
+    font-weight: bold;
+    color: #0000ff;
+}
+
+.archivist {
+    font-weight: bold;
+    color: #b6650f;
+}
+
+.helper {
+    font-weight: bold;
+    color: #9900ff;
+}
+
+.developer {
+    font-weight: bold;
+    color: #bf9000;
+}
+
+.staff {
+    font-weight: bold;
+    color: #cc0000;
+}
+
+.founder {
+    font-weight: bold;
+    color: #fd28fd;
+}
+
+/* Context */
+
+.mc-command {
+    font-family: McFont, sans-serif;
+    color:grey;
+}
+
+.discord-channel {
+    color: #505cdc;
+    background-color: #e6e8fd;
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: unset;
+    border-radius: 2px;
+    padding-top: 0.2em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.discord-channel::before {
+    content: "#";
+}
+
+.emphasis {
+    font-weight: bold;
+}
