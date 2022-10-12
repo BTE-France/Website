@@ -83,6 +83,9 @@ class GalleryEntry {
     }
 
     loadImage(src) {
+        this.info.querySelector(".download").onclick = _ => {
+            downloadImage(src, this.getTitle());
+        };
         this.img.onload = _ => {
             this.img.classList.add("gallery-image");
             this.element.classList.remove("gallery-loading");
@@ -90,6 +93,10 @@ class GalleryEntry {
             this.element.appendChild(this.img);
         };
         this.img.src = src;
+    }
+
+    getTitle() {
+        return this.title.innerText;
     }
 
     setTitle(title) {
@@ -124,6 +131,21 @@ class GalleryEntry {
         this.element.classList.remove("description-fullscreen");
     }
 
+}
+
+/**
+ * Saves an image to disk.
+ *
+ * @param url      image Data
+ * @param filename  the file name under which the image should be saved
+ */
+function downloadImage(url, filename) {
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
 const gallery = new Gallery(document.querySelector(".gallery"));
