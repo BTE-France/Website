@@ -13,7 +13,6 @@ h2 {
     max-width: 90vw;
     width: 72em;
     box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
-    border: solid;
     margin: 1em;
     text-align: center;
     padding: 1.5em;
@@ -22,8 +21,8 @@ h2 {
 
 .rules-header::before {
     position: absolute;
-    top: -3px;
-    bottom: -3px;
+    top: 0;
+    bottom: 0;
     left: -1em;
     width: 1em;
     font-family: RobotoSlab, sans-serif;
@@ -34,18 +33,26 @@ h2 {
 }
 
 .rules-column {
-    padding: 1em 2em 1em 1em;
     width: 35em;
     max-width: 40vw;
-    border: solid;
     border-radius: 1em;
     box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
     margin: 1em auto;
 }
 
+.rules-column .content-box {
+    padding: 1em 2em 1em 1em;
+}
+
 .rules-column h3 {
     text-align: center;
-    text-decoration: underline;
+    color: white;
+    width: 100%;
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 0.75em 0.75em 0 0;
+    background-color: #606060;
 }
 
 .rules-column li {
@@ -55,7 +62,6 @@ h2 {
 .rules-dangerous {
     color: #8d0303;
     background-color: #ffe8e8;
-    border-color: #ea4242;
     position: relative;
     margin-left: 3em;
 }
@@ -72,7 +78,6 @@ h2 {
 .rules-info {
     color: #00208b;
     background-color: #effafd;
-    border-color: #425eea;
     position: relative;
     margin-left: 3em;
 }
@@ -83,9 +88,12 @@ h2 {
 }
 
 .discord-rules {
-    border-color: #643098;
     background-color: #e9e0fb;
     color: #51267e;
+}
+
+.discord-rules h3 {
+    background-color: #51267e;
 }
 
 .discord-rules a {
@@ -94,8 +102,11 @@ h2 {
 
 .minecraft-rules {
     color: #016201;
-    border-color: #016201;
     background-color: #daffeb;
+}
+
+.minecraft-rules h3 {
+    background-color: #016201;
 }
 
 .minecraft-rules a {
