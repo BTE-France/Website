@@ -10,14 +10,10 @@ header[data-collapsed="no"] h1 {
 }
 
 header[data-collapsed="no"] .logo {
-    width: 5em;
+    width: 27em;
+    max-width: 100vw;
     height: auto;
-    margin: auto;
-}
-
-header[data-collapsed="no"] .img-link {
-    width: 5em;
-    margin: auto;
+    margin: 1em auto auto;
 }
 
 header[data-collapsed="no"] #burger-button {
@@ -45,7 +41,6 @@ header[data-collapsed="no"] {
 }
 
 header[data-collapsed="no"] nav {
-    margin-top: 1em;
     padding-bottom: 1em;
     font-size: 2em;
 }
