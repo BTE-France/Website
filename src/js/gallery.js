@@ -2,9 +2,14 @@ class Gallery {
     
     element;
     entries = [];
+    image;
+    fullscreenContainer;
 
     constructor(element) {
         this.element = element;
+        this.fullscreenContainer = element.querySelector(".container.fullscreen");
+        this.fullscreenContainer.onclick = _ => this.closeImageFullscreen();
+        this.image = this.fullscreenContainer.querySelector("img");
     }
     
     loadJson() {
@@ -14,7 +19,7 @@ class Gallery {
     }
 
     addEntry(entryJson) {
-        let entry = new GalleryEntry();
+        let entry = new GalleryEntry(this);
         entry.setTitle(entryJson["name"]);
         entry.setDescription(entryJson["description"]);
         entry.setImageSize(entryJson["width"], entryJson["height"]);
@@ -26,6 +31,15 @@ class Gallery {
             entry.hideSeparator();
         }
         this.entries.push(entry);
+    }
+
+    openImageFullscreen(src) {
+        this.fullscreenContainer.classList.remove("hidden");
+        this.image.src = src;
+    }
+
+    closeImageFullscreen() {
+        this.fullscreenContainer.classList.add("hidden");
     }
 
 }
@@ -64,8 +78,8 @@ class GalleryEntry {
         this.description = this.info.querySelector("p");
         this.author = this.info.querySelector(".author");
         this.builders = this.info.querySelector(".builders");
-        this.img.onclick = _ => {this.toggleImageFullscreen()};
-        this.info.querySelector(".fullscreen").onclick = _ => {this.showImageFullscreen()};
+        this.img.onclick = _ => {this.parent.openImageFullscreen(this.img.src)};
+        this.info.querySelector(".fullscreen").onclick = _ => {this.parent.openImageFullscreen(this.img.src)};
         this.info.querySelector(".info").onclick = _ => {this.showDescriptionFullscreen()};
         this.info.querySelector(".close").onclick = _ => {this.closeFullscreen()};
         this.element.appendChild(this.info);
@@ -126,25 +140,12 @@ class GalleryEntry {
         this.element.classList.add("no-top-border");
     }
 
-    showImageFullscreen() {
-        this.element.classList.add("image-fullscreen");
-    }
-
     showDescriptionFullscreen() {
         this.element.classList.add("description-fullscreen");
     }
 
     closeFullscreen() {
         this.element.classList.remove("description-fullscreen");
-        this.element.classList.remove("image-fullscreen");
-    }
-
-    toggleImageFullscreen() {
-        if (this.element.classList.contains("image-fullscreen")) {
-            this.element.classList.remove("image-fullscreen");
-        } else {
-            this.element.classList.add("image-fullscreen");
-        }
     }
 
 }

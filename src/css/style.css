@@ -8,6 +8,34 @@ html {
     scroll-behavior: smooth;
 }
 
+.container.fullscreen {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.82);
+    z-index: 1000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width, height, 100ms;
+}
+
+
+.container.fullscreen.hidden {
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    top: 50%;
+}
+
+.maximize {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 /* Header */
 header {
     position: fixed;
