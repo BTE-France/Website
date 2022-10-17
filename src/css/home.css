@@ -1,5 +1,7 @@
 /* Deployed Header */
+
 header[data-collapsed="no"] {
+    z-index: 1;
     position: absolute;
     height: 100vh;
 }
@@ -104,4 +106,53 @@ header nav a {
     background: url("../img/LaDéfenseArcDeTriomphe_4K.png") center;
     background-size: cover;
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    align-content: center;
+}
+
+@keyframes pulse {
+    0% {
+        font-size: 1em;
+    }
+    77% {
+        font-size: 1em;
+    }
+    88.5% {
+        font-size: 1.5em;
+    }
+    100% {
+        font-size: 1em;
+    }
+}
+
+.learn-more {
+    z-index: 2; /* This ensures that the learn more button is clickable */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation-name: pulse;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+}
+
+.learn-more .expanding {
+    height: 0.2em;
+    width: 100vw;
+    background-color: white;
+    transition: height, 300ms;
+}
+
+.learn-more:hover .expanding {
+    height: 1em;
+}
+
+.learn-more a {
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    padding: 0 1em;
+    border-radius: 0.5em 0.5em 0 0;
 }

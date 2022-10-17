@@ -60,6 +60,7 @@ header h2 {
 header .logo {
     height: 5em;
     margin: .5em auto .25em;
+    transition: width, height 500ms;
 }
 
 #header-content {
@@ -156,7 +157,8 @@ header nav a:hover {
 
 main {
     max-width: 100em;
-    margin: 1em auto;
+    margin: 0 auto;
+    padding: 5em 1em 1em;
 }
 
 article {
