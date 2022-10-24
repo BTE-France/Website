@@ -2,6 +2,7 @@
 body {
     margin: 0;
     color: rgb(0, 38, 84);
+    overflow-x: hidden;
 }
 
 html {
