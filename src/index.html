@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/lore.css" type="text/css">
   <link rel="stylesheet" href="css/home.css" type="text/css">
+  <link rel="stylesheet" href="css/slideshow.css" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -131,5 +132,16 @@
   </div>
 </footer>
 <script src="js/styling.js"></script>
+<script src="js/slideshow.js"></script>
+<script>
+  const MAIN_SLIDESHOW = new Slideshow(document.querySelector("#filler"), [
+      "img/gallery/LaDéfenseArcDeTriomphe.png",
+      "img/gallery/Antenna.jpg",
+      "img/gallery/GAN9.jpg",
+      "img/gallery/Basilique_Lisieux_5.png"
+      ]
+  );
+  setInterval(_ => MAIN_SLIDESHOW.changeToNextImage(), 10000);
+</script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+@keyframes fade-out {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.slideshow {
+    background-size: cover;
+}
+
+.slideshow-transition-helper {
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow-transition-helper.slideshow-hidden {
+    animation: fade-out 3s ease;
+}
