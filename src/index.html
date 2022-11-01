@@ -146,7 +146,9 @@
       "img/gallery/Basilique_Lisieux_5.png"
       ]
   );
-  initializeAllIllustrationSlideshows();
+  initializeAllIllustrationSlideshows({
+      "cycle-interval": 6000
+  });
   setInterval(_ => MAIN_SLIDESHOW.changeToNextImage(), 10000);
 </script>
 </body>

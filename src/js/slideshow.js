@@ -42,33 +42,76 @@ class ImageSlideshow {
     #element;
     #transitionDiv;
     #currentIndex = 0;
+    #selectors;
 
     constructor(element) {
         this.#element = element;
         this.#transitionDiv = document.createElement("div");
         this.#element.insertBefore(this.#transitionDiv, this.#element.children[0]);
-        this.#element.onclick = _ => this.changeTo(this.#currentIndex + 1);
+        this.#selectors = document.createElement("div");
+        this.#selectors.classList.add("slideshow-selectors");
+        this.#element.appendChild(this.#selectors);
+        this.createSelectors();
+        this.#selectors.children[0].checked = true;
     }
 
     changeTo(index) {
-        index = index % (this.#element.childElementCount - 1);
+        index = index % (this.#element.childElementCount - 2);
+        this.#selectors.children[index].click();
+    }
+
+    changeToNext() {
+        this.changeTo(this.#currentIndex + 1);
+    }
+
+    /**
+     * Internal method to change the displayed image, with a transition.
+     * Calling this.changeTo(index) is preferred as it ensures the selectors are updated as well.
+     *
+     * @param index
+     */
+    #changeTo(index) {
+
+        // Setup the transition element
         let transitionElement = document.createElement("img");
         this.#transitionDiv.insertBefore(transitionElement, this.#transitionDiv.children[0]);
         transitionElement.src = this.#element.children[1].src;
+
+        // Cycle the images until we are at the desired index
+        let children = this.#element.children;
         while (this.#currentIndex !== index) {
-            this.#element.appendChild(this.#element.children[1]);
-            this.#currentIndex = (this.#currentIndex + 1) % (this.#element.childElementCount - 1);
+            this.#element.insertBefore(children[1], children[children.length - 1]);
+            this.#currentIndex = (this.#currentIndex + 1) % (this.#element.childElementCount - 2);
         }
+
+        // Start the transition and remove the transition element once it is no longer visible
         transitionElement.classList.add("fadeout");
         setTimeout(_ => {
             this.#transitionDiv.removeChild(transitionElement);
         }, 1010);
     }
 
+    createSelectors() {
+        let imageCount = this.#element.children.length - 2;
+        let index = this.#selectors.children.length;
+        while (this.#selectors.children.length < imageCount) {
+            let selector = document.createElement("input");
+            selector.type = "radio";
+            selector.name = "index";
+            let i = index++;
+            selector.onchange = _ => this.#changeTo(i);
+            this.#selectors.appendChild(selector);
+        }
+    }
+
 }
 
-const initializeAllIllustrationSlideshows = () => {
+const initializeAllIllustrationSlideshows = settings => {
     document.querySelectorAll("div.illustration").forEach(element => {
         let slideshow = new ImageSlideshow(element);
+        let cycleInterval = settings["cycle-interval"];
+        if (cycleInterval) {
+            setInterval(() => slideshow.changeToNext(), cycleInterval);
+        }
     });
 }
