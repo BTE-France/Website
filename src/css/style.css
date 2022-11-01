@@ -177,6 +177,7 @@ article {
 }
 
 .article-content {
+    width: fit-content;
     text-align: center;
     padding: 2em;
 }

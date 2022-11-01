@@ -41,7 +41,12 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed libero ut mauris sollicitudin semper ac id nulla. Proin at elit facilisis, facilisis sem rhoncus, hendrerit massa. Sed tincidunt sem eu tortor laoreet, id accumsan erat condimentum. Morbi lacus mi, tempus quis tincidunt quis, bibendum sit amet quam. Praesent cursus scelerisque tellus et egestas. Suspendisse volutpat posuere mi in fringilla. Nam finibus blandit tortor ut bibendum. Vestibulum suscipit urna in erat tristique aliquam. Integer tincidunt ornare enim ut vestibulum. Donec quis convallis ex. Nulla quam dui, aliquam eget porttitor sed, pretium gravida lorem. Maecenas vitae dolor at nunc maximus blandit. Aenean quam nulla, rhoncus at ipsum et, bibendum lobortis dui. Nullam eleifend, velit ac dignissim faucibus, est tortor tempus tellus, at ullamcorper justo dui non dolor. Nullam mauris nisl, pellentesque non tempus ut, dignissim ac ligula.
       </p>
     </div>
-    <img src="img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
+    <div class="illustration image-slideshow">
+      <img src="img/gallery/CirqueJuleVerneAmiens.png">
+      <img src="img/gallery/Fl4v1_Paris_1.jpg">
+      <img src="img/gallery/Image_05_003.png">
+      <img src="img/gallery/NantesFoch.png">
+    </div>
   </article>
   <article class="main-content social-media">
     <h2>Join the adventure on Discord and follow us on social media</h2>
@@ -134,13 +139,14 @@
 <script src="js/styling.js"></script>
 <script src="js/slideshow.js"></script>
 <script>
-  const MAIN_SLIDESHOW = new Slideshow(document.querySelector("#filler"), [
+  const MAIN_SLIDESHOW = new BackgroundSlideshow(document.querySelector("#filler"), [
       "img/gallery/LaDéfenseArcDeTriomphe.png",
       "img/gallery/Antenna.jpg",
       "img/gallery/GAN9.jpg",
       "img/gallery/Basilique_Lisieux_5.png"
       ]
   );
+  initializeAllIllustrationSlideshows();
   setInterval(_ => MAIN_SLIDESHOW.changeToNextImage(), 10000);
 </script>
 </body>

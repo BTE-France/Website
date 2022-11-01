@@ -27,3 +27,30 @@
 .slideshow-transition-helper.slideshow-hidden {
     animation: fade-out 3s ease;
 }
+
+div.image-slideshow {
+    padding: 0;
+    position: relative;
+}
+
+div.image-slideshow img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+
+div.image-slideshow img:nth-child(2) {
+    display: block;
+}
+
+div.image-slideshow img.fadeout {
+    /* This is a transition helper */
+    animation: fade-out 1s ease;
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
