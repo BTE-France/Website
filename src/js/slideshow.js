@@ -50,18 +50,34 @@ class ImageSlideshow {
         this.#element.insertBefore(this.#transitionDiv, this.#element.children[0]);
         this.#selectors = document.createElement("div");
         this.#selectors.classList.add("slideshow-selectors");
+        let previousButton = document.createElement("button");
+        previousButton.classList.add("previous");
+        previousButton.textContent = "<";
+        previousButton.onclick = _ => this.changeToPrevious()
+        let nextButton = document.createElement("button");
+        nextButton.classList.add("next");
+        nextButton.textContent = ">";
+        nextButton.onclick = _ => this.changeToNext();
+        this.#element.appendChild(previousButton);
+        this.#element.appendChild(nextButton);
         this.#element.appendChild(this.#selectors);
-        this.createSelectors();
+        this.#createSelectors();
         this.#selectors.children[0].checked = true;
     }
 
     changeTo(index) {
-        index = index % (this.#element.childElementCount - 2);
+        this.#createSelectors(); // If an image is injected after the page has loaded, this takes care of it
+        let n = this.#element.childElementCount - 4;
+        index = (index % n + n) % n; // JS is dumb with negative modulos
         this.#selectors.children[index].click();
     }
 
     changeToNext() {
         this.changeTo(this.#currentIndex + 1);
+    }
+
+    changeToPrevious() {
+        this.changeTo(this.#currentIndex - 1);
     }
 
     /**
@@ -80,8 +96,8 @@ class ImageSlideshow {
         // Cycle the images until we are at the desired index
         let children = this.#element.children;
         while (this.#currentIndex !== index) {
-            this.#element.insertBefore(children[1], children[children.length - 1]);
-            this.#currentIndex = (this.#currentIndex + 1) % (this.#element.childElementCount - 2);
+            this.#element.insertBefore(children[1], children[children.length - 3]);
+            this.#currentIndex = (this.#currentIndex + 1) % (this.#element.childElementCount - 4);
         }
 
         // Start the transition and remove the transition element once it is no longer visible
@@ -91,8 +107,8 @@ class ImageSlideshow {
         }, 1010);
     }
 
-    createSelectors() {
-        let imageCount = this.#element.children.length - 2;
+    #createSelectors() {
+        let imageCount = this.#element.children.length - 4;
         let index = this.#selectors.children.length;
         while (this.#selectors.children.length < imageCount) {
             let selector = document.createElement("input");

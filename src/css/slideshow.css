@@ -94,3 +94,35 @@ div.image-slideshow .slideshow-selectors input[type="radio"]::before {
 div.image-slideshow .slideshow-selectors input[type="radio"]:checked::before {
     transform: scale(1);
 }
+
+div.image-slideshow button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4rem;
+    background-color: unset;
+    border: none;
+    color: rgba(255, 255, 255, 0.68);
+    border-radius: 0.5rem;
+    font-size: 3rem;
+    opacity: 0;
+    transition: color ease-in-out 200ms, opacity ease-in-out 200ms;
+}
+
+div.image-slideshow button:hover {
+    color: #ffffff;
+}
+
+div.image-slideshow:hover button {
+    opacity: 100%;
+}
+
+div.image-slideshow button.previous {
+    background-image: linear-gradient(to right, rgba(73, 73, 73, 0.87), rgba(0, 0, 0, 0));
+    left: 0;
+}
+
+div.image-slideshow button.next {
+    background-image: linear-gradient(to left, rgba(73, 73, 73, 0.87), rgba(0, 0, 0, 0));
+    right: 0;
+}
