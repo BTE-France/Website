@@ -69,6 +69,10 @@ main {
     position: absolute;
 }
 
+.gallery-button:hover {
+    cursor: pointer;
+}
+
 .gallery-button.download {
     background: url("../img/download.svg") center;
     background-size: 1.5em;

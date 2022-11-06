@@ -111,6 +111,7 @@ div.image-slideshow button {
 
 div.image-slideshow button:hover {
     color: #ffffff;
+    cursor: pointer;
 }
 
 div.image-slideshow:hover button {
