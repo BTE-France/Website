@@ -223,6 +223,11 @@ article {
     display: inline;
     width: 5em;
     margin: 1em;
+    transition: transform ease 200ms;
+}
+
+.social-media-account:hover img {
+    transform: scale(130%);
 }
 
 .social-media-account-alone img {

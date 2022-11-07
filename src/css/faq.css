@@ -13,26 +13,27 @@ article {
 }
 
 .faq-qa {
-    margin: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
     border-radius: 1rem;
     padding: 0;
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
+    transition: margin-bottom ease 200ms;
 }
 
 .faq-qa h3 {
     background-color: #606060;
     color: white;
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 2rem 1rem 1rem;
     border-radius: 1rem 1rem 0 0;
     cursor: pointer;
     transition: border-radius ease 200ms;
 }
 
-.faq-qa.collapsed h3 {
+.faq-qa.collapsed:not(:hover) h3 {
     border-radius: 1rem;
-    padding-right: 2rem;
 }
 
 .faq-qa p {
@@ -64,3 +65,10 @@ article {
     padding: 0 1rem 0 1rem;
 }
 
+.faq-qa.collapsed:hover .faq-answer {
+    max-height: 0.75rem;
+}
+
+.faq-qa.collapsed:hover {
+    margin-bottom: 1.25rem;
+}
