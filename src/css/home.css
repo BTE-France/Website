@@ -48,7 +48,7 @@ header[data-collapsed="no"] nav {
     margin-top: 1rem;
 }
 
-header[data-collapsed="no"] nav a {
+header[data-collapsed="no"] nav>a {
     line-height: 1.5em;
     padding: 1em;
 }
@@ -61,7 +61,7 @@ header[data-collapsed="no"] nav a {
         font-size: 2em;
     }
 
-    header[data-collapsed="no"] nav a {
+    header[data-collapsed="no"] nav>a {
         margin: 0;
         padding: 0.25em;
     }
@@ -70,7 +70,7 @@ header[data-collapsed="no"] nav a {
 
 @media only screen and (max-width: 500px) {
 
-    header[data-collapsed="no"] nav a {
+    header[data-collapsed="no"] nav>a {
         padding: 0.25em;
         font-size: 0.75em;
     }
@@ -100,6 +100,11 @@ header h2 {
 
 header nav a {
     transition: font-size 500ms, margin-top 500ms, color, 500ms;
+}
+
+header[data-collapsed="no"] nav[data-collapsed="yes"] .utility-box {
+    height: unset;
+    overflow: unset;
 }
 
 /* Filler */
