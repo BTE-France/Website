@@ -1,12 +1,13 @@
 /* General purpose stuff */
+html {
+    scroll-behavior: smooth;
+    font-family: Roboto, sans-serif;
+}
+
 body {
     margin: 0;
     color: rgb(0, 38, 84);
     overflow-x: hidden;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 .container.fullscreen {
@@ -23,7 +24,6 @@ html {
     align-items: center;
     transition: width, height, 100ms;
 }
-
 
 .container.fullscreen.hidden {
     left: 50%;
