@@ -219,8 +219,11 @@ article {
     margin-bottom: 1.5em;
 }
 
-.main-content h2 {
+main h2 {
+    font-family: CaveStory, sans-serif;
     font-size: 4em;
+    width: 100%;
+    text-align: center;
 }
 
 .main-content span {

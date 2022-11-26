@@ -4,11 +4,6 @@ main {
     justify-content: center;
 }
 
-h2 {
-    width: 100%;
-    text-align: center;
-}
-
 .rules-header {
     max-width: 90vw;
     width: 72em;
