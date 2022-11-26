@@ -32,7 +32,7 @@ main {
     max-width: 40vw;
     border-radius: 1em;
     box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
-    margin: 1em auto;
+    margin: 1em auto 3rem auto;
 }
 
 .rules-column .content-box {

@@ -183,6 +183,7 @@ article {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0;
 }
 
 .illustrated-paragraph h3 {
@@ -206,7 +207,7 @@ article {
 
 .main-content {
     font-family: CaveStory, sans-serif;
-    margin: auto;
+    margin: 0 auto 1rem auto;
     max-width: 50em;
     text-align: center;
 }
@@ -220,6 +221,7 @@ article {
 }
 
 main h2 {
+    margin-top: 0;
     font-family: CaveStory, sans-serif;
     font-size: 4em;
     width: 100%;
