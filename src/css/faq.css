@@ -32,7 +32,7 @@ article {
     transition: border-radius ease 200ms;
 }
 
-.faq-qa.collapsed:not(:hover) h3 {
+.faq-qa.collapsed h3 {
     border-radius: 1rem;
 }
 
@@ -63,12 +63,4 @@ article {
     overflow-y: hidden;
     max-height: 0;
     padding: 0 1rem 0 1rem;
-}
-
-.faq-qa.collapsed:hover .faq-answer {
-    max-height: 0.75rem;
-}
-
-.faq-qa.collapsed:hover {
-    margin-bottom: 1.25rem;
 }
