@@ -1,16 +1,92 @@
 {% set pageUrl = page.url.split('/').slice(2).join('/') %}
 <!DOCTYPE html>
 <html lang="{{ locale }}" dir="{{ dir }}">
-{% include 'head.njk' %}
-<body>
-  {% include 'header.njk' %}
-  <div id="filler"></div>
-  <main>
-    {% block main %}
-
-    {% endblock %}
-  </main>
-  {% include 'footer.njk' %}
-<script src="../assets/js/styling.js"></script>
-</body>
+<head>{% block head %}
+  <meta charset="UTF-8">
+  <title>{% block title %}BTE France{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block styles %}
+    <link rel="stylesheet" media="screen" href="/assets/css/fonts.css" type="text/css"/>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/lore.css" type="text/css">
+    {% block pageStyles %}{% endblock %}
+  {% endblock %}
+{% endblock %}</head>
+<body>{% block body %}
+  <header data-collapsed="yes">{% block header %}
+    <div id="header-content">
+      <div class="blue-stripe"></div>
+      <h1>{{ 'header.h1' | i18n | desaccentify }}</h1>
+      <a href="index.html" class="img-link"><img class="logo" src="/assets/img/LogoBanner.png" alt="{{ 'header.bannerAlt' | i18n }}"></a>
+      <h2>{{ 'header.h2' | i18n | desaccentify }}</h2>
+      <img src="/assets/img/Burger.svg" alt="{{ 'header.burgerAlt' | i18n }}" id="burger-button" onclick="toggleMobileMenu()">
+      <nav data-collapsed="yes">
+      {% block nav %}
+        {% for entry in navigation %}
+          {% if entry.primary %}
+            <a href="{{ entry.link }}">{{ entry.translationKey | i18n | desaccentify }}</a>
+          {% endif %}
+        {% endfor %}
+        <div class="utility-box">
+          {% if locales.length %}
+            <div class="dropdown">
+              <img alt= "{{ 'header.nav.languageAlt' | i18n }}" src="/assets/img/language.svg">
+              <button class="hidden"></button>
+              <ul>
+                {% for locale in locales %}
+                  <li><a href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">{{ locale.label | desaccentify }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+          <img alt="{{ 'header.nav.darkModeAlt' | i18n }}" class="night-mode-switcher" src="/assets/img/night.svg">
+        </div>
+      {% endblock %}
+      </nav>
+      <div class="red-stripe"></div>
+    </div>
+  {% endblock %}</header>
+  {% block filler %}<div id="filler"></div>{% endblock %}
+  <main>{% block main %}{% endblock %}</main>
+<footer>{% block footer %}
+  <div class="footer-section">
+    <h5>{{ 'footer.policy.title' | i18n }}</h5>
+    <p>{{ 'footer.policy.content' | i18n }}</p>
+  </div>
+  <div class="footer-section">
+    <h5>{{ 'footer.navigation'| i18n }}</h5>
+    <ul>
+      {% for entry in navigation %}
+        <li><a href="{{ entry.link }}">{{ entry.translationKey | i18n }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h5>{{ 'footer.links' | i18n }}</h5>
+    <ul>
+      {% for link in related %}
+        <li><a href="{{ link.link }}">{{ link.translationKey | i18n }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h5>{{ 'footer.contacts' | i18n }}</h5>
+    <ul>
+      <li>{% include 'email.njk' %}</li>
+    </ul>
+  </div>
+  <div class="footer-section social">
+    <h5>{{ 'footer.social' | i18n }}</h5>
+    <ul>
+      {% for media in social %}
+        <li><a href="{{ media.link }}"><img src="{{ media.iconLinkMono }}" alt="">{{ media.translationKey | i18n }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}</footer>
+  {% block scripts %}
+  <script src="../assets/js/styling.js"></script>
+  {% block pageScripts %}{% endblock %}
+{% endblock %}
+{% endblock %}</body>
 </html>
