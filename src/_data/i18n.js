@@ -17,26 +17,6 @@ module.exports = {
       en: "Main menu"
     },
     nav: {
-      home: {
-        fr: "Accueil",
-        en: "Home"
-      },
-      maps: {
-        fr: "Cartes",
-        en: "Maps"
-      },
-      gallery: {
-        fr: "Galerie",
-        en: "Gallery"
-      },
-      rules: {
-        fr: "Règles",
-        en: "Rules"
-      },
-      faq: {
-        fr: "FAQ",
-        en: "FAQ"
-      },
       languageAlt: {
         fr: "Menu des langues",
         en: "Language menu"
@@ -45,6 +25,116 @@ module.exports = {
         fr: "Mode sombre",
         en: "Dark mode"
       }
+    }
+  },
+  navigation: {
+    home: {
+      fr: "Accueil",
+      en: "Home"
+    },
+    maps: {
+      fr: "Cartes",
+      en: "Maps"
+    },
+    gallery: {
+      fr: "Galerie",
+      en: "Gallery"
+    },
+    rules: {
+      fr: "Règles",
+      en: "Rules"
+    },
+    ranks: {
+      fr: "Grades",
+      en: "Ranks"
+    },
+    faq: {
+      fr: "FAQ",
+      en: "FAQ"
+    }
+  },
+  footer: {
+    policy: {
+      title: {
+        fr: "Politique à l'égard de vos données",
+        en: "Data policy"
+      },
+      content: {
+        fr: "Ce site utilise les cookies pour proposer ses fonctionnalités de préférences utilisateur comme le mode sombre.\n" +
+            "Nous enregistrons certaines données de base comme les adresses IP et les pages visités pour des raisons de sécurité.\n" +
+            "Nous ne partageons en aucun cas ces données avec des tiers et ne les utiliserons jamais à des fins commerciales.",
+        en: "This website uses cookies to provide user preference functionalities like dark mode.\n" +
+            "We log basic data like IP addresses and visited web pages for security purposes.\n" +
+            "We do not share such data with any third party and will never use it for commercial purposes."
+      }
+    },
+    navigation: {
+      fr: "Navigation",
+      en: "Navigation"
+    },
+    links: {
+      title: {
+        fr: "Liens utiles",
+        en: "Useful links"
+      },
+      bte: {
+        fr: "Site de BuildTheEarth",
+        en: "BuildTheEarth website"
+      },
+      terraplusplus: {
+        fr: "Terraplusplus",
+        en: "Terraplusplus"
+      },
+      terramap: {
+        fr: "Terramap",
+        en: "Terramap"
+      }
+    },
+    contacts: {
+      fr: "Contacts",
+      en: "Contacts"
+    },
+    social: {
+      fr: "Réseaux sociaux",
+      en: "Social media"
+    }
+  },
+  social: {
+    discord: {
+      fr: "Discord",
+      en: "Discord"
+    },
+    youtube: {
+      fr: "YouTube",
+      en: "YouTube"
+    },
+    twitter: {
+      fr: "Twitter",
+      en: "Twitter"
+    },
+    instagram: {
+      fr: "Instagram",
+      en: "Instagram"
+    },
+    facebook: {
+      fr: "Facebook",
+      en: "Facebook"
+    },
+    reddit: {
+      fr: "Reddit",
+      en: "Reddit"
+    },
+    planetMinecraft: {
+      fr: "Planète Minecraft",
+      en: "Planet Minecraft"
+    },
+    tiktok: {
+      fr: "TikTok",
+      en: "TikTok"
+    },
+    github: {
+      fr: "GitHub",
+      en: "GitHub"
     }
   },
   notFound: {
