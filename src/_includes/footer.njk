@@ -12,11 +12,11 @@
     </ul>
   </div>
   <div class="footer-section">
-    <h5>{{ 'footer.links.title' | i18n }}</h5>
+    <h5>{{ 'footer.links' | i18n }}</h5>
     <ul>
-      <li><a href="https://buildtheearth.net">{{ 'footer.links.bte' | i18n }}</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/terraplusplus">{{ 'footer.links.terraplusplus' | i18n }}</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/terramap">{{ 'footer.links.terramap' | i18n }}</a></li>
+      {% for link in related %}
+        <li><a href="{{ link.link }}">{{ link.translationKey | i18n }}</a></li>
+      {% endfor %}
     </ul>
   </div>
   <div class="footer-section">

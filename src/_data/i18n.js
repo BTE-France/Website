@@ -57,6 +57,20 @@ module.exports = {
       en: "Rémi"
     }
   },
+  related: {
+    bte: {
+      fr: "Site de BuildTheEarth",
+      en: "BuildTheEarth website"
+    },
+    terraplusplus: {
+      fr: "Terraplusplus",
+      en: "Terraplusplus"
+    },
+    terramap: {
+      fr: "Terramap",
+      en: "Terramap"
+    }
+  },
   footer: {
     policy: {
       title: {
@@ -77,22 +91,8 @@ module.exports = {
       en: "Navigation"
     },
     links: {
-      title: {
-        fr: "Liens utiles",
-        en: "Useful links"
-      },
-      bte: {
-        fr: "Site de BuildTheEarth",
-        en: "BuildTheEarth website"
-      },
-      terraplusplus: {
-        fr: "Terraplusplus",
-        en: "Terraplusplus"
-      },
-      terramap: {
-        fr: "Terramap",
-        en: "Terramap"
-      }
+      fr: "Liens utiles",
+      en: "Useful links"
     },
     contacts: {
       fr: "Contacts",
