@@ -1,19 +1,19 @@
 <header data-collapsed="yes">
   <div id="header-content">
     <div class="blue-stripe"></div>
-    <h1>BTE France</h1>
-    <a href="index.html" class="img-link"><img class="logo" src="/assets/img/LogoBanner.png" alt="BTE France logo"></a>
-    <h2>We are building France in Minecraft, one to one scale.</h2>
-    <img src="/assets/img/Burger.svg" alt="Burger button" id="burger-button" onclick="toggleMobileMenu()">
+    <h1>{{ 'header.h1' | i18n | desaccentify }}</h1>
+    <a href="index.html" class="img-link"><img class="logo" src="/assets/img/LogoBanner.png" alt="{{ 'header.bannerAlt' | i18n }}"></a>
+    <h2>{{ 'header.h2' | i18n | desaccentify }}</h2>
+    <img src="/assets/img/Burger.svg" alt="{{ 'header.burgerAlt' | i18n }}" id="burger-button" onclick="toggleMobileMenu()">
     <nav data-collapsed="yes">
-      <a href="index.html">Home</a>
-      <a href="maps.html">Maps</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="rules.html">Rules</a>
-      <a href="faq.html">FAQ</a>
+      <a href="index.html">{{ 'header.nav.home' | i18n | desaccentify }}</a>
+      <a href="maps.html">{{ 'header.nav.maps' | i18n | desaccentify }}</a>
+      <a href="gallery.html">{{ 'header.nav.gallery' | i18n | desaccentify }}</a>
+      <a href="rules.html">{{ 'header.nav.rules' | i18n | desaccentify }}</a>
+      <a href="faq.html">{{ 'header.nav.faq' | i18n | desaccentify }}</a>
       <div class="utility-box">
         <div class="dropdown">
-          <img src="/assets/img/language.svg">
+          <img alt= "{{ 'header.nav.languageAlt' | i18n }}" src="/assets/img/language.svg">
           <button class="hidden"></button>
           <ul>
             <li><a href="#">French</a></li>
@@ -29,7 +29,7 @@
             <li><a href="#">Breton</a></li>
           </ul>
         </div>
-        <img alt="dark mode" class="night-mode-switcher" src="/assets/img/night.svg">
+        <img alt="{{ 'header.nav.darkModeAlt' | i18n }}" class="night-mode-switcher" src="/assets/img/night.svg">
       </div>
     </nav>
     <div class="red-stripe"></div>
