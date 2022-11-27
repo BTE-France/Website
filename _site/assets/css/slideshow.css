@@ -1,0 +1,129 @@
+@keyframes fade-out {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.slideshow {
+    background-size: cover;
+}
+
+.slideshow-transition-helper {
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow-transition-helper.slideshow-hidden {
+    animation: fade-out 3s ease;
+}
+
+div.image-slideshow {
+    padding: 0;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+div.image-slideshow img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+
+div.image-slideshow img:nth-child(2) {
+    display: block;
+}
+
+div.image-slideshow img.fadeout {
+    /* This is a transition helper */
+    animation: fade-out 1s ease;
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+div.image-slideshow .slideshow-selectors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1.5rem;
+}
+
+div.image-slideshow .slideshow-selectors input[type="radio"] {
+    appearance: none;
+    border: solid #a8a8a8 0.1rem;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    display: grid;
+    place-content: center;
+    box-shadow: 0 0 2.5rem 0 rgba(0, 0, 0, 0.78);
+}
+
+div.image-slideshow .slideshow-selectors input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+div.image-slideshow .slideshow-selectors input[type="radio"]::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 500ms transform ease-in-out;
+    box-shadow: inset 1em 1em #a8a8a8;
+}
+
+div.image-slideshow .slideshow-selectors input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+div.image-slideshow button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4rem;
+    background-color: unset;
+    border: none;
+    color: rgba(255, 255, 255, 0.68);
+    border-radius: 0.5rem;
+    font-size: 3rem;
+    opacity: 0;
+    transition: color ease-in-out 200ms, opacity ease-in-out 200ms;
+}
+
+div.image-slideshow button:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+div.image-slideshow:hover button {
+    opacity: 100%;
+}
+
+div.image-slideshow button.previous {
+    background-image: linear-gradient(to right, rgba(73, 73, 73, 0.87), rgba(0, 0, 0, 0));
+    left: 0;
+}
+
+div.image-slideshow button.next {
+    background-image: linear-gradient(to left, rgba(73, 73, 73, 0.87), rgba(0, 0, 0, 0));
+    right: 0;
+}

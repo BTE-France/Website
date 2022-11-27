@@ -1,0 +1,66 @@
+main {
+    text-align: center;
+}
+
+h2 {
+    font-family: CaveStory, sans-serif;
+    font-size: 4rem;
+    margin-top: 0;
+}
+
+article {
+    text-align: left;
+}
+
+.faq-qa {
+    margin-bottom: 2rem;
+    margin-top: 0;
+    border-radius: 1rem;
+    padding: 0;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
+    transition: margin-bottom ease 200ms;
+}
+
+.faq-qa h3 {
+    background-color: #606060;
+    color: white;
+    margin: 0;
+    padding: 1rem 2rem 1rem 1rem;
+    border-radius: 1rem 1rem 0 0;
+    cursor: pointer;
+    transition: border-radius ease 200ms;
+}
+
+.faq-qa.collapsed h3 {
+    border-radius: 1rem;
+}
+
+.faq-qa p {
+    margin: 0;
+}
+
+.faq-qa h3::after {
+    content: "\25B2";
+    position: absolute;
+    right: 1rem;
+    rotate: 0deg;
+    transition: rotate 200ms;
+}
+
+.faq-qa.collapsed h3::after {
+    rotate: 180deg;
+}
+
+.faq-qa .faq-answer {
+    overflow-y: hidden;
+    padding: 1rem;
+    transition: padding ease 200ms, max-height ease 200ms;
+    max-height: 50vh;
+}
+
+.faq-qa.collapsed .faq-answer {
+    overflow-y: hidden;
+    max-height: 0;
+    padding: 0 1rem 0 1rem;
+}
