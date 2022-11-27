@@ -1,9 +1,7 @@
 <footer>
   <div class="footer-section">
-    <h5>{{ 'footer.policy.title' | i18n }} </h5>
-    <p>
-        {{ 'footer.policy.content' | i18n }}
-    </p>
+    <h5>{{ 'footer.policy.title' | i18n }}</h5>
+    <p>{{ 'footer.policy.content' | i18n }}</p>
   </div>
   <div class="footer-section">
     <h5>{{ 'footer.navigation'| i18n }}</h5>
@@ -30,15 +28,9 @@
   <div class="footer-section social">
     <h5>{{ 'footer.social' | i18n }}</h5>
     <ul>
-      <li><a href="https://discord.btefrance.fr"><img src="/assets/img/social/discord-mono.svg" alt="">Discord</a></li>
-      <li><a href="https://www.youtube.com/c/BTEFrance"><img src="/assets/img/social/youtube-mono.svg" alt="">YouTube</a></li>
-      <li><a href="https://twitter.com/BTE_France"><img src="/assets/img/social/twitter-mono.svg" alt="">Twitter</a></li>
-      <li><a href="https://www.instagram.com/bte_france"><img src="/assets/img/social/instagram-mono.svg" alt="">Instagram</a></li>
-      <li><a href="https://www.facebook.com/Build-The-Earth-France-113380800556340"><img src="/assets/img/social/facebook-mono.svg" alt="">Facebook</a></li>
-      <li><a href="https://www.reddit.com/user/BTE_France"><img src="/assets/img/social/reddit-mono.svg" alt="">Reddit</a></li>
-      <li><a href="https://www.planetminecraft.com/member/bte-france"><img src="/assets/img/social/planetminecraft-mono.svg" alt="">Planet Minecraft</a></li>
-      <li><a href="https://www.tiktok.com/@btefrance"><img src="/assets/img/social/tiktok-mono.svg" alt="">TikTok</a></li>
-      <li><a href="https://github.com/BTE-France"><img src="/assets/img/social/github-mono.svg" alt="">GitHub</a></li>
+      {% for media in social %}
+        <li><a href="{{ media.link }}"><img src="{{ media.iconLinkMono }}" alt="">{{ media.translationKey | i18n }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 </footer>
