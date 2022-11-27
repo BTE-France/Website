@@ -13,7 +13,7 @@ class Gallery {
     }
     
     loadJson() {
-        fetch("img/gallery/gallery.json").then(r => r.json()).then(response => {
+        fetch("/assets/img/gallery/gallery.json").then(r => r.json()).then(response => {
             response.forEach(e => this.addEntry(e));
         })
     }
