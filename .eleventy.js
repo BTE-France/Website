@@ -3,16 +3,16 @@ const i18n = require('eleventy-plugin-i18n');
 const translations = require("./src/_data/i18n")
 
 const desaccentify = s => {
-    return s.replace(/[éèêë]/, 'e')
-            .replace(/[ÉÈÊË]/, 'E')
-            .replace(/[àâä]/, 'a')
-            .replace(/[ÀÂä]/, 'A')
-            .replace(/[îï]/, 'i')
-            .replace(/[ÎÏ]/, 'I')
-            .replace(/[ôÖ]/, 'o')
-            .replace(/[ÔÖ]/, 'O')
-            .replace(/ç/, 'c')
-            .replace(/Ç/, 'C');
+    return s.replaceAll(/[éèêë]/g, 'e')
+            .replaceAll(/[ÉÈÊË]/g, 'E')
+            .replaceAll(/[àâä]/g, 'a')
+            .replaceAll(/[ÀÂä]/g, 'A')
+            .replaceAll(/[îï]/g, 'i')
+            .replaceAll(/[ÎÏ]/g, 'I')
+            .replaceAll(/[ôÖ]/g, 'o')
+            .replaceAll(/[ÔÖ]/g, 'O')
+            .replaceAll(/ç/g, 'c')
+            .replaceAll(/Ç/g, 'C');
 }
 
 module.exports = function(eleventyConfig) {
