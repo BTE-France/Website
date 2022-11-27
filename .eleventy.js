@@ -10,7 +10,9 @@ const desaccentify = s => {
             .replace(/[îï]/, 'i')
             .replace(/[ÎÏ]/, 'I')
             .replace(/[ôÖ]/, 'o')
-            .replace(/[ÔÖ]/, 'O');
+            .replace(/[ÔÖ]/, 'O')
+            .replace(/ç/, 'c')
+            .replace(/Ç/, 'C');
 }
 
 module.exports = function(eleventyConfig) {

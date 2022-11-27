@@ -1,3 +1,4 @@
+{% set pageUrl = page.url.split('/').slice(2).join('/') %}
 <!DOCTYPE html>
 <html lang="{{ locale }}" dir="{{ dir }}">
 {% include 'head.njk' %}

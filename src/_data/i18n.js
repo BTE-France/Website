@@ -128,7 +128,7 @@ module.exports = {
       fr: "Reddit",
       en: "Reddit"
     },
-    planetMinecraft: {
+    planetminecraft: {
       fr: "Planète Minecraft",
       en: "Planet Minecraft"
     },

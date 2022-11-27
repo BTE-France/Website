@@ -12,23 +12,17 @@
         {% endif %}
       {% endfor %}
       <div class="utility-box">
-        <div class="dropdown">
-          <img alt= "{{ 'header.nav.languageAlt' | i18n }}" src="/assets/img/language.svg">
-          <button class="hidden"></button>
-          <ul>
-            <li><a href="#">French</a></li>
-            <li><a href="#">English</a></li>
-            <li><a href="#">Spanish</a></li>
-            <li><a href="#">Breton</a></li>
-            <li><a href="#">Chinese (simplified)</a></li>
-            <li><a href="#">Portuguese</a></li>
-            <li><a href="#">Catalan</a></li>
-            <li><a href="#">German</a></li>
-            <li><a href="#">Basque</a></li>
-            <li><a href="#">Breton</a></li>
-            <li><a href="#">Breton</a></li>
-          </ul>
-        </div>
+        {% if locales.length %}
+          <div class="dropdown">
+            <img alt= "{{ 'header.nav.languageAlt' | i18n }}" src="/assets/img/language.svg">
+            <button class="hidden"></button>
+            <ul>
+              {% for locale in locales %}
+                <li><a href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">{{ locale.label | desaccentify }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
         <img alt="{{ 'header.nav.darkModeAlt' | i18n }}" class="night-mode-switcher" src="/assets/img/night.svg">
       </div>
     </nav>
