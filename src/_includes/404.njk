@@ -1,0 +1,9 @@
+{% extends 'base.njk' %}
+
+{% block main %}
+<article class="main-content">
+  <h2>{{ 'notFound.title' | i18n }}</h2>
+  <img class="error-image" src="/assets/img/PharCapBear.png" alt="Lighthouse">
+  <span>{{ 'notFound.message' | i18n }}</span>
+</article>
+{% endblock %}

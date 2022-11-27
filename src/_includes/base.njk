@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ dir }}">
+{% include 'head.njk' %}
+<body>
+  {% include 'header.njk' %}
+  <div id="filler"></div>
+  <main>
+    {% block main %}
+
+    {% endblock %}
+  </main>
+  {% include 'footer.njk' %}
+<script src="../assets/js/styling.js"></script>
+</body>
+</html>
