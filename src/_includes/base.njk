@@ -13,7 +13,7 @@
   {% endblock %}
 {% endblock %}</head>
 <body>{% block body %}
-  <header data-collapsed="yes">{% block header %}
+  <header data-collapsed="no">{% block header %}
     <div id="header-content">
       <div class="blue-stripe"></div>
       <h1>{{ 'header.h1' | i18n | desaccentify }}</h1>
@@ -46,8 +46,8 @@
       <div class="red-stripe"></div>
     </div>
   {% endblock %}</header>
-  {% block filler %}<div id="filler"></div>{% endblock %}
-  <main>{% block main %}{% endblock %}</main>
+  <div id="filler">{% block filler %}{% endblock %}</div>
+  <main id="main">{% block main %}{% endblock %}</main>
 <footer>{% block footer %}
   <div class="footer-section">
     <h5>{{ 'footer.policy.title' | i18n }}</h5>
