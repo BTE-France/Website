@@ -51,6 +51,10 @@ module.exports = {
     faq: {
       fr: "FAQ",
       en: "FAQ"
+    },
+    remi: {
+      fr: "Rémi",
+      en: "Rémi"
     }
   },
   footer: {

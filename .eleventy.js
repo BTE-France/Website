@@ -26,7 +26,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(i18n, {
         translations: translations,
         fallbackLocales: {
-            'en': 'fr'
+            '*': 'fr'
         }
     });
 
@@ -35,7 +35,7 @@ module.exports = function(eleventyConfig) {
         dir: {
             input: "src",
             includes: "src/_includes",
-            data: "src/_data",
+            data: "_data",
             output: "_site"
         }
     }

@@ -8,12 +8,9 @@
   <div class="footer-section">
     <h5>{{ 'footer.navigation'| i18n }}</h5>
     <ul>
-      <li><a href="index.html">{{ 'navigation.home' | i18n }}</a></li>
-      <li><a href="maps.html">{{ 'navigation.maps' | i18n }}</a></li>
-      <li><a href="gallery.html">{{ 'navigation.gallery' | i18n }}</a></li>
-      <li><a href="rules.html">{{ 'navigation.rules' | i18n }}</a></li>
-      <li><a href="rules.html#ranks">{{ 'navigation.ranks' | i18n }}</a></li>
-      <li><a href="faq.html">{{ 'navigation.faq' | i18n }}</a></li>
+      {% for entry in navigation %}
+        <li><a href="{{ entry.link }}">{{ entry.translationKey | i18n }}</a></li>
+      {% endfor %}
     </ul>
   </div>
   <div class="footer-section">
