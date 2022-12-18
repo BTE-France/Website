@@ -24,7 +24,7 @@
       {% block nav %}
         {% for entry in navigation %}
           {% if entry.primary %}
-            <a href="{{ entry.link }}">{{ entry.translationKey | i18n | desaccentify }}</a>
+            <a href="{% url entry.link, locale %}">{{ entry.translationKey | i18n | desaccentify }}</a>
           {% endif %}
         {% endfor %}
         <div class="utility-box">
@@ -57,7 +57,7 @@
     <h5>{{ 'footer.navigation'| i18n }}</h5>
     <ul>
       {% for entry in navigation %}
-        <li><a href="{{ entry.link }}">{{ entry.translationKey | i18n }}</a></li>
+        <li><a href="{% url entry.link, locale %}">{{ entry.translationKey | i18n }}</a></li>
       {% endfor %}
     </ul>
   </div>
@@ -65,7 +65,7 @@
     <h5>{{ 'footer.links' | i18n }}</h5>
     <ul>
       {% for link in related %}
-        <li><a href="{{ link.link }}">{{ link.translationKey | i18n }}</a></li>
+        <li><a href="{% url link.link, locale %}">{{ link.translationKey | i18n }}</a></li>
       {% endfor %}
     </ul>
   </div>
