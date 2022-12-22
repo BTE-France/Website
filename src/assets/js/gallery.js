@@ -20,8 +20,8 @@ class Gallery {
 
     addEntry(entryJson) {
         let entry = new GalleryEntry(this);
-        entry.setTitle(entryJson["name"]);
-        entry.setDescription(entryJson["description"]);
+        entry.setTitle(entryJson["name"][locale]);
+        entry.setDescription(entryJson["description"][locale]);
         entry.setImageSize(entryJson["width"], entryJson["height"]);
         entry.setAuthor(entryJson["author"]);
         entry.setBuilders(entryJson["builders"].join(", "));
