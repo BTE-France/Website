@@ -1,0 +1,85 @@
+{% extends 'base.njk' %}
+
+{% block pageStyles %}
+  <link rel="stylesheet" href="/assets/css/slideshow.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/home.css" type="text/css">
+{% endblock %}
+
+{% block filler %}
+  <div class="learn-more">
+    <a href="#main">Learn more</a>
+    <div class="expanding"></div>
+  </div>
+{% endblock %}
+
+{% block main %}
+<article class="illustrated-paragraph">
+    <div class="article-content">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed libero ut mauris sollicitudin semper ac id nulla. Proin at elit facilisis, facilisis sem rhoncus, hendrerit massa. Sed tincidunt sem eu tortor laoreet, id accumsan erat condimentum. Morbi lacus mi, tempus quis tincidunt quis, bibendum sit amet quam. Praesent cursus scelerisque tellus et egestas. Suspendisse volutpat posuere mi in fringilla. Nam finibus blandit tortor ut bibendum. Vestibulum suscipit urna in erat tristique aliquam. Integer tincidunt ornare enim ut vestibulum. Donec quis convallis ex. Nulla quam dui, aliquam eget porttitor sed, pretium gravida lorem. Maecenas vitae dolor at nunc maximus blandit. Aenean quam nulla, rhoncus at ipsum et, bibendum lobortis dui. Nullam eleifend, velit ac dignissim faucibus, est tortor tempus tellus, at ullamcorper justo dui non dolor. Nullam mauris nisl, pellentesque non tempus ut, dignissim ac ligula.
+      </p>
+    </div>
+    <div class="illustration image-slideshow">
+      <img src="/assets/img/gallery/CirqueJuleVerneAmiens.png">
+      <img src="/assets/img/gallery/Fl4v1_Paris_1.jpg">
+      <img src="/assets/img/gallery/Image_05_003.png">
+      <img src="/assets/img/gallery/NantesFoch.png">
+    </div>
+  </article>
+  <article class="main-content social-media">
+    <h2>Join the adventure on Discord and follow us on social media</h2>
+    <div class="social-media-account social-media-account-alone">
+      <a href="https://discord.btefrance.fr"><img src="../assets/img/social/discord-color.svg" alt="Discord logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://www.youtube.com/c/BTEFrance"><img src="../assets/img/social/youtube-color.svg" alt="YouTube logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://twitter.com/BTE_France"><img src="../assets/img/social/twitter-color.svg" alt="Twitter logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://www.instagram.com/bte_france"><img src="../assets/img/social/instagram-color.svg" alt="Instagram logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://www.facebook.com/Build-The-Earth-France-113380800556340"><img src="../assets/img/social/facebook-color.svg" alt="Facebook logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://www.reddit.com/user/BTE_France"><img src="../assets/img/social/reddit-color.svg" alt="Reddit logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://www.planetminecraft.com/member/bte-france"><img src="../assets/img/social/planetminecraft-color.svg" alt="Planet Minecraft logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://www.tiktok.com/@btefrance"><img src="../assets/img/social/tiktok-color.svg" alt="TikTok logo"></a>
+    </div>
+    <div class="social-media-account">
+      <a href="https://github.com/BTE-France"><img src="../assets/img/social/github-color.svg" alt="GitHub logo"></a>
+    </div>
+  </article>
+  <article class="illustrated-paragraph">
+    <img src="/assets/img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
+    <div class="article-content">
+      <h3>Contacting us</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed libero ut mauris sollicitudin semper ac id nulla. Proin at elit facilisis, facilisis sem rhoncus, hendrerit massa. Sed tincidunt sem eu tortor laoreet, id accumsan erat condimentum. Morbi lacus mi, tempus quis tincidunt quis, bibendum sit amet quam. Praesent cursus scelerisque tellus et egestas. Suspendisse volutpat posuere mi in fringilla. Nam finibus blandit tortor ut bibendum. Vestibulum suscipit urna in erat tristique aliquam. Integer tincidunt ornare enim ut vestibulum. Donec quis convallis ex. Nulla quam dui, aliquam eget porttitor sed, pretium gravida lorem. Maecenas vitae dolor at nunc maximus blandit. Aenean quam nulla, rhoncus at ipsum et, bibendum lobortis dui. Nullam eleifend, velit ac dignissim faucibus, est tortor tempus tellus, at ullamcorper justo dui non dolor. Nullam mauris nisl, pellentesque non tempus ut, dignissim ac ligula.
+      </p>
+    </div>
+  </article>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/assets/js/slideshow.js"></script>
+<script>
+  const MAIN_SLIDESHOW = new BackgroundSlideshow(document.querySelector("#filler"), [
+      "/assets/img/gallery/LaDéfenseArcDeTriomphe.png",
+      "/assets/img/gallery/Antenna.jpg",
+      "/assets/img/gallery/GAN9.jpg",
+      "/assets/img/gallery/Basilique_Lisieux_5.png"
+      ]
+  );
+  initializeAllIllustrationSlideshows({
+      "cycle-interval": 6000
+  });
+  setInterval(() => MAIN_SLIDESHOW.changeToNextImage(), 10000);
+</script>
+{% endblock %}

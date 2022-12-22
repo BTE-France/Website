@@ -13,15 +13,15 @@ class Gallery {
     }
     
     loadJson() {
-        fetch("img/gallery/gallery.json").then(r => r.json()).then(response => {
+        fetch("/assets/img/gallery/gallery.json").then(r => r.json()).then(response => {
             response.forEach(e => this.addEntry(e));
         })
     }
 
     addEntry(entryJson) {
         let entry = new GalleryEntry(this);
-        entry.setTitle(entryJson["name"]);
-        entry.setDescription(entryJson["description"]);
+        entry.setTitle(entryJson["name"][locale]);
+        entry.setDescription(entryJson["description"][locale]);
         entry.setImageSize(entryJson["width"], entryJson["height"]);
         entry.setAuthor(entryJson["author"]);
         entry.setBuilders(entryJson["builders"].join(", "));

@@ -1,2 +1,4 @@
 .idea
-/src/img/gallery/
+/src/assets/img/gallery/*
+node_modules
+_site/*

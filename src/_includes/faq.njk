@@ -1,0 +1,41 @@
+{% extends 'base.njk' %}
+
+{% block pageStyles %}
+  <link rel="stylesheet" href="/assets/css/faq.css">
+{% endblock %}
+
+{% block main %}
+  <h2>{{ 'pages.faq.title' | i18n | desaccentify }}</h2>
+
+  {% for qa in faq %}
+      <article class="faq-qa collapsed">
+        <h3 onclick="this.parentElement.classList.toggle('collapsed')">
+        {% if qa.question.fr and locale == 'fr' %}
+            {{ qa.question.fr }}
+        {% elif qa.question.en and locale == 'en' %}
+            {{ qa.question.en }}
+        {% elif qa.question.en %}
+            {{ qa.question.en }}
+        {% elif qa.question.fr %}
+            {{ qa.question.fr }}
+        {% else %}
+            {{ "Question missing" }}
+        {% endif %}
+        </h3>
+        <p class="faq-answer">
+            {% if qa.answer.fr and locale == 'fr' %}
+                {{ qa.answer.fr }}
+            {% elif qa.answer.en and locale == 'en' %}
+                {{ qa.answer.en }}
+            {% elif qa.answer.en %}
+                {{ qa.answer.en }}
+            {% elif qa.answer.fr %}
+                {{ qa.answer.fr }}
+            {% else %}
+                {{ "Answer missing" }}
+            {% endif %}
+        </p>
+      </article>
+  {% endfor %}
+
+{% endblock %}
