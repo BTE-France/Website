@@ -5,60 +5,37 @@
 {% endblock %}
 
 {% block main %}
-  <h2>FAQ</h2>
+  <h2>{{ 'pages.faq.title' | i18n | desaccentify }}</h2>
 
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">How can I join the Minecraft server ?</h3>
-    <p class="faq-answer">
-      The server's IP is <span class="mc-command">btefrance.fr</span>. You can join with vanilla 1.12.2 Minecraft,
-      but we highly encourage you to install the Build The Earth modpack to get the full experience.
-      Illegitimate copies of Minecraft are not allowed, you must own a proper Minecraft account to join our server.
-    </p>
-  </article>
-
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">How do I start building ?</h3>
-    <p class="faq-answer">
-      Getting ready to build is pretty straight forward, you can simply join our Minecraft serveur
-      and ask a staff member for the <span class="beginner">Débutant</span> role (débutant means beginner).
-      This will grant you building permissions and the staff will follow your progress until you reach the
-      <span class="builder">Builder</span> role.
-    </p>
-  </article>
-
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">Brute efficitur facilis hinc elit in explicari fermentum ludus dicam?</h3>
-    <p class="faq-answer collapsed">
-      Diam idque propriae facilisi splendide nullam volumus te. Decore per prompta omittantur ignota ocurreret atomorum elaboraret sit rutrum. Fabulas oratio graece possit nulla. Dico graeci mattis metus delenit saepe veri affert. Persecuti aliquam arcu omnesque dictum maiestatis ponderum intellegat conubia efficiantur.
-    </p>
-  </article>
-
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">Brute efficitur facilis hinc elit in explicari fermentum ludus dicam?</h3>
-    <p class="faq-answer collapsed">
-      Diam idque propriae facilisi splendide nullam volumus te. Decore per prompta omittantur ignota ocurreret atomorum elaboraret sit rutrum. Fabulas oratio graece possit nulla. Dico graeci mattis metus delenit saepe veri affert. Persecuti aliquam arcu omnesque dictum maiestatis ponderum intellegat conubia efficiantur.
-    </p>
-  </article>
-
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">Brute efficitur facilis hinc elit in explicari fermentum ludus dicam?</h3>
-    <p class="faq-answer collapsed">
-      Diam idque propriae facilisi splendide nullam volumus te. Decore per prompta omittantur ignota ocurreret atomorum elaboraret sit rutrum. Fabulas oratio graece possit nulla. Dico graeci mattis metus delenit saepe veri affert. Persecuti aliquam arcu omnesque dictum maiestatis ponderum intellegat conubia efficiantur.
-    </p>
-  </article>
-
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">Brute efficitur facilis hinc elit in explicari fermentum ludus dicam?</h3>
-    <p class="faq-answer collapsed">
-      Diam idque propriae facilisi splendide nullam volumus te. Decore per prompta omittantur ignota ocurreret atomorum elaboraret sit rutrum. Fabulas oratio graece possit nulla. Dico graeci mattis metus delenit saepe veri affert. Persecuti aliquam arcu omnesque dictum maiestatis ponderum intellegat conubia efficiantur.
-    </p>
-  </article>
-
-  <article class="faq-qa collapsed">
-    <h3 onclick="this.parentElement.classList.toggle('collapsed')">Brute efficitur facilis hinc elit in explicari fermentum ludus dicam?</h3>
-    <p class="faq-answer collapsed">
-      Diam idque propriae facilisi splendide nullam volumus te. Decore per prompta omittantur ignota ocurreret atomorum elaboraret sit rutrum. Fabulas oratio graece possit nulla. Dico graeci mattis metus delenit saepe veri affert. Persecuti aliquam arcu omnesque dictum maiestatis ponderum intellegat conubia efficiantur.
-    </p>
-  </article>
+  {% for qa in faq %}
+      <article class="faq-qa collapsed">
+        <h3 onclick="this.parentElement.classList.toggle('collapsed')">
+        {% if qa.question.fr and locale == 'fr' %}
+            {{ qa.question.fr }}
+        {% elif qa.question.en and locale == 'en' %}
+            {{ qa.question.en }}
+        {% elif qa.question.en %}
+            {{ qa.question.en }}
+        {% elif qa.question.fr %}
+            {{ qa.question.fr }}
+        {% else %}
+            {{ "Question missing" }}
+        {% endif %}
+        </h3>
+        <p class="faq-answer">
+            {% if qa.answer.fr and locale == 'fr' %}
+                {{ qa.answer.fr }}
+            {% elif qa.answer.en and locale == 'en' %}
+                {{ qa.answer.en }}
+            {% elif qa.answer.en %}
+                {{ qa.answer.en }}
+            {% elif qa.answer.fr %}
+                {{ qa.answer.fr }}
+            {% else %}
+                {{ "Answer missing" }}
+            {% endif %}
+        </p>
+      </article>
+  {% endfor %}
 
 {% endblock %}

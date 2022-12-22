@@ -313,6 +313,12 @@ module.exports = {
           }
         }
       }
+    },
+    faq: {
+      title: {
+        fr: "FAQ",
+        en: "FAQ"
+      }
     }
   }
 };
