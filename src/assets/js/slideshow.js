@@ -23,7 +23,7 @@ class BackgroundSlideshow {
         this.#transitionElement.style.backgroundImage = this.#getImageBackgroundProperty(this.#currentIndex);
         this.#element.style.backgroundImage = this.#getImageBackgroundProperty(index) ;
         this.#transitionElement.classList.add("slideshow-hidden");
-        setTimeout(_ => this.#transitionElement.classList.remove("slideshow-hidden"), 3050);
+        setTimeout(() => this.#transitionElement.classList.remove("slideshow-hidden"), 3050);
         this.#currentIndex = index;
     }
 
@@ -36,6 +36,8 @@ class BackgroundSlideshow {
     }
 
 }
+
+let carrouselId = 0;
 
 class ImageSlideshow {
 
@@ -113,11 +115,12 @@ class ImageSlideshow {
         while (this.#selectors.children.length < imageCount) {
             let selector = document.createElement("input");
             selector.type = "radio";
-            selector.name = "index";
+            selector.name = "index-" + carrouselId;
             let i = index++;
             selector.onchange = _ => this.#changeTo(i);
             this.#selectors.appendChild(selector);
         }
+        carrouselId++;
     }
 
 }
