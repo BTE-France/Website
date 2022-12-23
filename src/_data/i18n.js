@@ -209,14 +209,12 @@ module.exports = {
             "Notre équipe de modérateurs fera tout son possible pour veiller à ce qu'elles soient appliquées " +
             "afin que BTE France reste un endroit agréable pour la communauté. " +
             "Par conséquent, le bon sens prime et ces règles peuvent être interprétées comme un guide, " +
-            "et non littéralement. Tenter de contourner les règles n'est par conséquent pas acceptable." +
-            "\n\n" +
-            "Vous pouvez faire appel d'un bannissement à l'adresse suivante : [{{ email }}](mailto:{{ email }}).",
+            "et non littéralement. Tenter de contourner les règles n'est par conséquent pas acceptable.",
           en: "**By engaging in our community, you agree to abid by the following rules.** " +
             "Our staff team will actively enforce them to ensure BTE France remains an enjoyable place for everyone. " +
             "The staff team reserves itself the right to take any action it considers necessary to achieve that goal. " +
-            "As such, common sens applies first and these rules should be interpreted as guidelines and not literally. " +
-            "Exploiting loopholes is therefore not acceptable.\n\nBan appeals can be addressed to [{{ email }}]({{ email }})."
+            "As such, common sense applies first and these rules should be interpreted as guidelines and not literally. " +
+            "Exploiting loopholes is therefore not acceptable."
         },
         info: {
           fr: "Si vous avez la moindre question, vous pouvez consulter les canaux " +
@@ -292,10 +290,9 @@ module.exports = {
               "<#694003889506091100/694003889506091103,french-chat>."
           },
           builder: {
-            fr: "[Builder] : le grade Builder certifié est un membre reconnu de la team BuildTheEarth.net " +
-              "Pour l’obtenir il vous faut construire au moins deux bâtiments sur le serveur, " +
-              "et faire votre demande sur le site BuildTheEarth.net. " +
-              "(un guide très simple est à votre disposition dans <#694003889506091100/810512822928670780,❔・comment-rejoindre> sur Discord) "
+            fr: "[Builder] : le grade Builder certifie que vous êtes un Builder officiel du projet BuildTheEarth.net. " +
+              "Pour faire votre candidature de Builder officiel, " +
+              "un guide est disponible sur Discord dans <#694003889506091100/810512822928670780,❔・comment-rejoindre> sur Discord) "
           },
           foreman: {
             fr: "[Contremaître] : le grade Contremaître est honorifique, vous n’aurez pas de permission en plus, " +
@@ -330,31 +327,24 @@ module.exports = {
         },
         staff: {
           archivist: {
-            fr: "[Archiviste] : le grade d’Archiviste est un grade unique qui a été décerné à @lclc, " +
-              "il s’occupe de trier et de renseigner avec le plus d’informations possible les constructions " +
-              "faites par les joueurs permettant de mettre à jour la map française (`/map` sur Discord)."
+            fr: "[Archiviste] : Les archivistes ont pour mission de recenser les constructions et de gérer la carte de progression."
           },
           helper: {
             fr: "[Helper] : le grade Helper est le premier grade staff. " +
-              "Ils sont des modérateurs et anciennement des Builder+ ; " +
+              "Ils sont des modérateurs" +
               "ils sont là pour vous aider sur vos constructions, " +
               "ils vous donnent des conseils sur les fonctionnalités de BTE (WorldEdit, tutos…). " +
               "Comme inscrit plus haut, les Helpers sont modérateurs en cas d’absence des [Staff] : " +
               "ils peuvent vous passer en grade de [Débutant] à [Architecte]"
           },
           developer: {
-            fr: "[Développeur] : le grade Développeur est celui de @Smyler, " +
-              "c’est notamment à lui que l’on doit le mod Terramap permettant d’avoir des cartes satellite et " +
-              "openStreetMap directement en jeu."
+            fr: "[Développeur] : le grade Développeur est donné aux membres de BTE France " +
+              "qui aident à développer certains de nos outils (site Internet, bots ou bien plugins)."
           },
           staff: {
             fr: "[Staff] : Le grade Staff est le grade le plus haut placé en termes de permissions. " +
               "Ils sont considérés comme admins et gèrent l'entièreté du serveur, " +
               "ils sont anciennement les modérateurs et les admins réunis sous ce seul grade."
-          },
-          founder: {
-            fr: "[Fondatrice] : Détenu par @Lennah_, c’est la propriétaire du serveur. " +
-              "A ne pas confondre avec les propriétaires de la team BTE France."
           }
         }
       }
