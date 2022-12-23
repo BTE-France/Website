@@ -151,7 +151,7 @@ module.exports = {
       en: "Reddit"
     },
     planetminecraft: {
-      fr: "Planète Minecraft",
+      fr: "Planet Minecraft",
       en: "Planet Minecraft"
     },
     tiktok: {
@@ -186,8 +186,11 @@ module.exports = {
       info: {
         content: {
           fr: "BTE France est un projet communautaire ayant pour but de reconstruire la France entière dans Minecraft. " +
-            "Nous sommes constamment à la recherche de volontaires pour nous aider sur ce vaste projet " +
-            "dont on ne voit jamais le bout ! Si vous êtes motivés, vous êtes donc le bienvenu !"
+            "Nous sommes constamment à la recherche de volontaires pour nous aider à compléter le plus grand projet que Minecraft ait jamais connu. " +
+            "Si vous êtes motivés, vous êtes donc le bienvenu !",
+          en: "BTE France is a community project whose goal is to rebuild the entirety of France in Minecraft. " +
+            "We are constantly looking for volunteers to help us complete the biggest project Minecraft has ever seen. " +
+            "If you are motivated, you are welcome!"
         },
         button: {
           fr: "Nous rejoindre",
@@ -196,17 +199,23 @@ module.exports = {
       },
       origins: {
         title: {
-          fr: "Genèse"
+          fr: "Genèse",
+          en: "Genesis"
         },
         content: {
-          fr: "Le Projet BTE France découle du projet BuildTheEarth initié par le Youtubeur PippenFTS en Mars 2020. " +
+          fr: "Le projet BTE France découle du projet BuildTheEarth initié par le Youtubeur PippenFTS en Mars 2020. " +
             "C’est un projet ayant pour but de reconstruire la planète entière à travers différentes équipes encadrant " +
             "la construction de chaque pays. Nous construisons le monde ensemble grâce au mod CubicChunks nous permettant " +
             "de retirer les limites de hauteur de Minecraft, ainsi qu’une carte Dymaxion modifiée nous permettant " +
             "d’éviter les problèmes de déformations liés aux cartes que nous utilisons normalement au quotidien." +
-            "\n\n" +
             "BTE France est la deuxième équipe la plus active du projet avec plus de 5800 bâtiments ayant été recensés en décembre 2021. " +
-            "Bien entendu, ce nombre ne fait et fera qu’augmenter dans le futur mais pour ça il nous faudra votre aide !"
+            "Bien entendu, ce nombre ne fait et fera qu’augmenter dans le futur mais pour ça il nous faudra votre aide !",
+          en: "The BTE France project stems from the BuildTheEarth project initiated by the Youtuber PippenFTS in March 2020. " +
+            "It's a project aiming to rebuild the whole planet through different teams supervising the construction of each country. " +
+            "We build the world together thanks to the CubicChunks mod allowing us to remove the height limits of Minecraft, " +
+            "as well as a modified Dymaxion map allowing us to avoid the deformation problems linked to the maps we normally use in our daily lives. " +
+            "BTE France is the second most active team of the project with more than 5800 buildings having been counted in December 2021. " +
+            "Of course, this number will only increase in the future but for that we need your help!"
         }
       }
     },
@@ -222,9 +231,9 @@ module.exports = {
             "\n\n" +
             "Si vous avez des requêtes ou que vous rencontrez des problèmes avec cette carte, adressez-vous à @mAxYoLo01.",
           en: "A map with the most notable constructions of the server. " +
-            "It lets use browse BTE France as you would with a satellite vue." +
+            "It lets you browse BTE France as you would with a satellite vue." +
             "\n\n" +
-            "If you have any issue with the map or which to suggest changes, you can contact @mAxYoLo01."
+            "If you have any issue with the map or wish to suggest changes, you can contact @mAxYoLo01."
         },
         link: {
           fr: "Visiter la carte",
@@ -243,11 +252,11 @@ module.exports = {
             "\n\n" +
             "Si vous avez des requêtes ou que vous rencontrez des problèmes avec cette carte, " +
             "adressez-vous aux membres ayant le grade [Archiviste].",
-          en: "A progress map that records all warps on the server. Thanks to this map," +
+          en: "A progress map that records all warps on the server. Thanks to this map, " +
             "you can checkout whether a city or town has already been worked on, " +
             "and even look at pictures, screenshots and 3D renders from the community." +
             "\n\n" +
-            "If you have any issue with the map or which to suggest changes, you can contact anyone with the [Archiviste] rank."
+            "If you have any issue with the map or wish to suggest changes, you can contact anyone with the [Archiviste] rank."
         },
         link: {
           fr: "Visiter la carte",
