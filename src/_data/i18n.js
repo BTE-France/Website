@@ -167,6 +167,10 @@ module.exports = {
             "It lets use browse BTE France as you would with a satellite vue." +
             "\n\n" +
             "If you have any issue with the map or which to suggest changes, you can contact @mAxYoLo01."
+        },
+        link: {
+          fr: "Visiter la carte",
+          en: "Checkout map"
         }
       },
       progress: {
@@ -186,6 +190,10 @@ module.exports = {
             "and even look at pictures, screenshots and 3D renders from the community." +
             "\n\n" +
             "If you have any issue with the map or which to suggest changes, you can contact anyone with the [Archiviste] rank."
+        },
+        link: {
+          fr: "Visiter la carte",
+          en: "Checkout map"
         }
       }
     },
