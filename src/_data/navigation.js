@@ -16,5 +16,6 @@ module.exports = [
   new NavigationEntry('/rules', 'navigation.rules', true),
   new NavigationEntry('/rules#ranks', 'navigation.ranks', false),
   new NavigationEntry('/faq', 'navigation.faq', true),
+  new NavigationEntry('https://linktr.ee/Lclcm', 'navigation.archives', false),
   new NavigationEntry('https://remi.btefrance.fr', 'navigation.remi', false),
 ];

@@ -52,6 +52,10 @@ module.exports = {
       fr: "FAQ",
       en: "FAQ"
     },
+    archives: {
+      fr: "Archives",
+      en: "Archives"
+    },
     remi: {
       fr: "Rémi",
       en: "Rémi"
@@ -69,6 +73,24 @@ module.exports = {
     terramap: {
       fr: "Terramap",
       en: "Terramap"
+    },
+    download: {
+      windows: {
+        fr: "Installeur Windows",
+        en: "Windows installer"
+      },
+      mac: {
+        fr: "Installeur macOS",
+        en: "maxOS installer"
+      },
+      linux: {
+        fr: "Installeur Linux (App Image)",
+        en: "Linux installer (App Image)"
+      },
+      universal: {
+        fr: "Installeur universel (JAR)",
+        en: "Universal installer (JAR)"
+      }
     }
   },
   footer: {
