@@ -452,3 +452,11 @@ a.button {
 a.button:hover {
     background-color: #02a216;
 }
+
+a.button.button-discord {
+    background-color: #5865f2;
+}
+
+a.button.button-discord:hover {
+    background-color: #414ec5;
+}

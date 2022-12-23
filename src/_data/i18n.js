@@ -174,6 +174,42 @@ module.exports = {
     }
   },
   pages: {
+    home: {
+      more: {
+        fr: "En savoir plus",
+        en: "Learn more"
+      },
+      join: {
+        fr: "Rejoins l'aventure sur Discord et suis nous sur les réseaux sociaux !",
+        en: "Join the adventure on Discord and follow us on social media!"
+      },
+      info: {
+        content: {
+          fr: "BTE France est un projet communautaire ayant pour but de reconstruire la France entière dans Minecraft. " +
+            "Nous sommes constamment à la recherche de volontaires pour nous aider sur ce vaste projet " +
+            "dont on ne voit jamais le bout ! Si vous êtes motivés, vous êtes donc le bienvenu !"
+        },
+        button: {
+          fr: "Nous rejoindre",
+          en: "Join us"
+        }
+      },
+      origins: {
+        title: {
+          fr: "Genèse"
+        },
+        content: {
+          fr: "Le Projet BTE France découle du projet BuildTheEarth initié par le Youtubeur PippenFTS en Mars 2020. " +
+            "C’est un projet ayant pour but de reconstruire la planète entière à travers différentes équipes encadrant " +
+            "la construction de chaque pays. Nous construisons le monde ensemble grâce au mod CubicChunks nous permettant " +
+            "de retirer les limites de hauteur de Minecraft, ainsi qu’une carte Dymaxion modifiée nous permettant " +
+            "d’éviter les problèmes de déformations liés aux cartes que nous utilisons normalement au quotidien." +
+            "\n\n" +
+            "BTE France est la deuxième équipe la plus active du projet avec plus de 5800 bâtiments ayant été recensés en décembre 2021. " +
+            "Bien entendu, ce nombre ne fait et fera qu’augmenter dans le futur mais pour ça il nous faudra votre aide !"
+        }
+      }
+    },
     maps: {
       dynmap: {
         title: {
