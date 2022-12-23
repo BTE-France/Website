@@ -152,6 +152,43 @@ module.exports = {
     }
   },
   pages: {
+    maps: {
+      dynmap: {
+        title: {
+          fr: "Carte Dynmap",
+          en: "Dynmap"
+        },
+        description: {
+          fr: "C'est une carte qui vous permet de voir les constructions les plus notables du serveur. " +
+            "Elle vous permet de visiter le serveur entier comme sur une vue satellite." +
+            "\n\n" +
+            "Si vous avez des requêtes ou que vous rencontrez des problèmes avec cette carte, adressez-vous à @mAxYoLo01.",
+          en: "A map with the most notable constructions of the server. " +
+            "It lets use browse BTE France as you would with a satellite vue." +
+            "\n\n" +
+            "If you have any issue with the map or which to suggest changes, you can contact @mAxYoLo01."
+        }
+      },
+      progress: {
+        title: {
+          fr: "Carte des projets",
+          en: "Progress map"
+        },
+        description: {
+          fr: "C'est la carte de progression du serveur qui recense tous les warps. " +
+            "Grâce à cette carte, vous pourrez savoir si votre ville ou village a été construit," +
+            "et même voir des photos ou des rendus 3D. Le tout sans même vous connecter sur le serveur!" +
+            "\n\n" +
+            "Si vous avez des requêtes ou que vous rencontrez des problèmes avec cette carte, " +
+            "adressez-vous aux membres ayant le grade [Archiviste].",
+          en: "A progress map that records all warps on the server. Thanks to this map," +
+            "you can checkout whether a city or town has already been worked on, " +
+            "and even look at pictures, screenshots and 3D renders from the community." +
+            "\n\n" +
+            "If you have any issue with the map or which to suggest changes, you can contact anyone with the [Archiviste] rank."
+        }
+      }
+    },
     rules: {
       rules: {
         title: {
