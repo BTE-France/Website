@@ -1,18 +1,36 @@
 {% extends 'base.njk' %}
 
+{% block pageStyles %}
+  <link rel="stylesheet" href="/assets/css/slideshow.css" type="text/css">
+{% endblock %}
+
 {% block main %}
 <article class="illustrated-paragraph">
     <div class="article-content">
       <h3>{{ 'pages.maps.dynmap.title' | i18n }}</h3>
       <p>{{ 'pages.maps.dynmap.description' | i18n }}</p>
     </div>
-    <img src="/assets/img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
+    <div class="illustration image-slideshow">
+      <img src="/assets/img/map-dynmap-france.png">
+      <img src="/assets/img/map-dynmap-paris.png">
+    </div>
   </article>
   <article class="illustrated-paragraph">
     <div class="article-content">
           <h3>{{ 'pages.maps.progress.title' | i18n }}</h3>
           <p>{{ 'pages.maps.progress.description' | i18n }}</p>
         </div>
-    <img src="/assets/img/LaDéfenseArcDeTriomphe_4K.png" class="illustration">
-  </article>
+    <div class="illustration image-slideshow">
+      <img src="/assets/img/map-progress-france.png">
+      <img src="/assets/img/map-progress-paris.png">
+    </div>  </article>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/assets/js/slideshow.js"></script>
+<script>
+  initializeAllIllustrationSlideshows({
+      "cycle-interval": 6000
+  });
+</script>
 {% endblock %}
