@@ -11,7 +11,7 @@ class MarkdownDocument {
   }
 
   toHTML() {
-    return this.children.map(c => c.toHTML()).join('<br>');
+    return this.children.map(c => c.toHTML()).join('\n');
   }
 
 }
