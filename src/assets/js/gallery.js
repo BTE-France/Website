@@ -69,9 +69,9 @@ class GalleryEntry {
             '<button class="gallery-button fullscreen"></button>' +
             '<p></p>' +
             '<button class="gallery-button close">X</button>' +
-            '<img src="img/camera.svg" class="camera" alt="">' +
+            '<img src="/assets/img/camera.svg" class="camera" alt="">' +
             '<span class="author"></span>' +
-            '<img src="img/axe.svg" class="axe" alt="">' +
+            '<img src="/assets/img/axe.svg" class="axe" alt="">' +
             '<span class="builders"></span>'
         ;
         this.title = this.info.querySelector("h4");
