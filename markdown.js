@@ -55,6 +55,20 @@ class EmphasisText {
   }
 }
 
+class Link {
+  text;
+  href;
+
+  constructor(text, href) {
+    this.text = text;
+    this.href = href;
+  }
+
+  toHTML() {
+    return '<a href="' + this.href + '" target="_blank">' + escapeHTML(this.text) + '</a>';
+  }
+}
+
 class DiscordChannel {
 
   channelId;
@@ -105,18 +119,19 @@ class MarkdownParser {
 
   #textPatterns = [
     [ /\*\*([^*]*)\*\*/g,  s => new EmphasisText(s[1])],
+    [ /\[([^\]]+)\]\(([^\)]+)\)/g, c => new Link(c[1], c[2])],
     [ /<#([\d/]+),([^>]+)>/g, c => new DiscordChannel(c[1], c[2])],
     [ /@([^@\s]+)/g, c => new DiscordUserMention(c[1])],
-    [ /\[(visit(?:eur|or))]/gi, c => new Role('visitor', c[1])],
-    [ /\[(d[ée]butant|begginer)\]/giu, c => new Role('beginner', c[1])],
-    [ /\[(buildeu?r)\]/giu, c => new Role('builder', c[1])],
-    [ /\[(contrema[iî]tre|foreman)\]/giu, c => new Role('foreman', c[1])],
-    [ /\[(architecte?)\]/giu, c => new Role('architect', c[1])],
-    [ /\[(ing[ée]nieur|engineer)\]/giu, c => new Role('engineer', c[1])],
-    [ /\[(archiviste?)\]/giu, c => new Role('archivist', c[1])],
-    [ /\[(helpeu?r)\]/giu, c => new Role('helper', c[1])],
-    [ /\[(d[ée]veloppeur|developer)\]/giu, c => new Role('developer', c[1])],
-    [ /\[(staff)\]/giu, c => new Role('staff', c[1])],
+    [ /\[(visit(?:eurs?|ors?))]/gi, c => new Role('visitor', c[1])],
+    [ /\[(d[ée]butants?|begginers?)\]/giu, c => new Role('beginner', c[1])],
+    [ /\[(buildeu?rs?)\]/giu, c => new Role('builder', c[1])],
+    [ /\[(contrema[iî]tres?|foremans?)\]/giu, c => new Role('foreman', c[1])],
+    [ /\[(architecte?s?)\]/giu, c => new Role('architect', c[1])],
+    [ /\[(ing[ée]nieurs?|engineers?)\]/giu, c => new Role('engineer', c[1])],
+    [ /\[(archiviste?s?)\]/giu, c => new Role('archivist', c[1])],
+    [ /\[(helpeu?rs?)\]/giu, c => new Role('helper', c[1])],
+    [ /\[(d[ée]veloppeurs?|developers?)\]/giu, c => new Role('developer', c[1])],
+    [ /\[(staffs?)\]/giu, c => new Role('staff', c[1])],
     [ /\[(fondat(?:eur|rice)|founder)\]/giu, c => new Role('founder', c[1])]
   ];
 
