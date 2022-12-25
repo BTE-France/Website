@@ -55,12 +55,69 @@ class EmphasisText {
   }
 }
 
+class DiscordChannel {
+
+  channelId;
+  channelName;
+
+  constructor(channelId, channelName) {
+    this.channelId = channelId;
+    this.channelName = channelName;
+  }
+
+  toHTML() {
+    return '<a class="discord-channel" href="https://discord.com/channels/' + this.channelId + '">' + escapeHTML(this.channelName) + '</a>'
+  }
+
+}
+
+class DiscordUserMention {
+  username;
+
+  constructor(username) {
+    this.username = username;
+  }
+
+  toHTML() {
+    return '<span class="discord-user">' + escapeHTML(this.username) + '</span>';
+  }
+
+}
+
+class Role {
+  cssClass;
+  text;
+
+  constructor(cssClass, text) {
+    this.cssClass = cssClass;
+    this.text = text;
+  }
+
+  toHTML() {
+    return '<span class="' + this.cssClass + '">[' + escapeHTML(this.text) + ']</span>';
+  }
+
+}
+
 class MarkdownParser {
 
   #lines;
 
   #textPatterns = [
-    [ /\*\*([^*]*)\*\*/g,  s => new EmphasisText(s[1])]
+    [ /\*\*([^*]*)\*\*/g,  s => new EmphasisText(s[1])],
+    [ /<#([\d/]+),([^>]+)>/g, c => new DiscordChannel(c[1], c[2])],
+    [ /@([^@\s]+)/g, c => new DiscordUserMention(c[1])],
+    [ /\[(visit(?:eur|or))]/gi, c => new Role('visitor', c[1])],
+    [ /\[(d[ée]butant|begginer)\]/giu, c => new Role('beginner', c[1])],
+    [ /\[(buildeu?r)\]/giu, c => new Role('builder', c[1])],
+    [ /\[(contrema[iî]tre|foreman)\]/giu, c => new Role('foreman', c[1])],
+    [ /\[(architecte?)\]/giu, c => new Role('architect', c[1])],
+    [ /\[(ing[ée]nieur|engineer)\]/giu, c => new Role('engineer', c[1])],
+    [ /\[(archiviste?)\]/giu, c => new Role('archivist', c[1])],
+    [ /\[(helpeu?r)\]/giu, c => new Role('helper', c[1])],
+    [ /\[(d[ée]veloppeur|developer)\]/giu, c => new Role('developer', c[1])],
+    [ /\[(staff)\]/giu, c => new Role('staff', c[1])],
+    [ /\[(fondat(?:eur|rice)|founder)\]/giu, c => new Role('founder', c[1])]
   ];
 
   parse(text) {

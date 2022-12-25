@@ -11,30 +11,30 @@
       <article class="faq-qa collapsed">
         <h3 onclick="this.parentElement.classList.toggle('collapsed')">
         {% if qa.question.fr and locale == 'fr' %}
-            {{ qa.question.fr }}
+            {{ qa.question.fr | lore | safe }}
         {% elif qa.question.en and locale == 'en' %}
-            {{ qa.question.en }}
+            {{ qa.question.en | lore | safe }}
         {% elif qa.question.en %}
-            {{ qa.question.en }}
+            {{ qa.question.en | lore | safe }}
         {% elif qa.question.fr %}
-            {{ qa.question.fr }}
+            {{ qa.question.fr | lore | safe }}
         {% else %}
             {{ "Question missing" }}
         {% endif %}
         </h3>
-        <p class="faq-answer">
+        <div class="faq-answer">
             {% if qa.answer.fr and locale == 'fr' %}
-                {{ qa.answer.fr }}
+                {{ qa.answer.fr | lore | safe }}
             {% elif qa.answer.en and locale == 'en' %}
-                {{ qa.answer.en }}
+                {{ qa.answer.en | lore | safe }}
             {% elif qa.answer.en %}
-                {{ qa.answer.en }}
+                {{ qa.answer.en | lore | safe }}
             {% elif qa.answer.fr %}
-                {{ qa.answer.fr }}
+                {{ qa.answer.fr | lore | safe }}
             {% else %}
                 {{ "Answer missing" }}
             {% endif %}
-        </p>
+        </div>
       </article>
   {% endfor %}
 
