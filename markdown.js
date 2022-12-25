@@ -43,18 +43,6 @@ class RegularText {
 
 }
 
-class EmphasisText {
-  text;
-
-  constructor(text) {
-    this.text = text;
-  }
-
-  toHTML() {
-    return '<span class="emphasis">' + escapeHTML(this.text) + '</span>';
-  }
-}
-
 class Link {
   text;
   href;
@@ -85,20 +73,7 @@ class DiscordChannel {
 
 }
 
-class DiscordUserMention {
-  username;
-
-  constructor(username) {
-    this.username = username;
-  }
-
-  toHTML() {
-    return '<span class="discord-user">' + escapeHTML(this.username) + '</span>';
-  }
-
-}
-
-class Role {
+class ClassedSpan { // A span with a specific class
   cssClass;
   text;
 
@@ -108,7 +83,7 @@ class Role {
   }
 
   toHTML() {
-    return '<span class="' + this.cssClass + '">[' + escapeHTML(this.text) + ']</span>';
+    return '<span class="' + this.cssClass + '">' + escapeHTML(this.text) + '</span>';
   }
 
 }
@@ -118,21 +93,22 @@ class MarkdownParser {
   #lines;
 
   #textPatterns = [
-    [ /\*\*([^*]*)\*\*/g,  s => new EmphasisText(s[1])],
+    [ /\*\*([^*]*)\*\*/g,  s => new ClassedSpan('emphasis', s[1])],
+    [ /`([^`]*)`/g,  s => new ClassedSpan('technical', s[1])],
     [ /\[([^\]]+)\]\(([^\)]+)\)/g, c => new Link(c[1], c[2])],
     [ /<#([\d/]+),([^>]+)>/g, c => new DiscordChannel(c[1], c[2])],
-    [ /@([^@\s]+)/g, c => new DiscordUserMention(c[1])],
-    [ /\[(visit(?:eurs?|ors?))]/gi, c => new Role('visitor', c[1])],
-    [ /\[(d[ée]butants?|begginers?)\]/giu, c => new Role('beginner', c[1])],
-    [ /\[(buildeu?rs?)\]/giu, c => new Role('builder', c[1])],
-    [ /\[(contrema[iî]tres?|foremans?)\]/giu, c => new Role('foreman', c[1])],
-    [ /\[(architecte?s?)\]/giu, c => new Role('architect', c[1])],
-    [ /\[(ing[ée]nieurs?|engineers?)\]/giu, c => new Role('engineer', c[1])],
-    [ /\[(archiviste?s?)\]/giu, c => new Role('archivist', c[1])],
-    [ /\[(helpeu?rs?)\]/giu, c => new Role('helper', c[1])],
-    [ /\[(d[ée]veloppeurs?|developers?)\]/giu, c => new Role('developer', c[1])],
-    [ /\[(staffs?)\]/giu, c => new Role('staff', c[1])],
-    [ /\[(fondat(?:eur|rice)|founder)\]/giu, c => new Role('founder', c[1])]
+    [ /@([^@\s]+)/g, c => new ClassedSpan('discord-user', c[1])],
+    [ /\[(visit(?:eurs?|ors?))]/gi, c => new ClassedSpan('visitor', c[1])],
+    [ /\[(d[ée]butants?|begginers?)\]/giu, c => new ClassedSpan('beginner', c[1])],
+    [ /\[(buildeu?rs?)\]/giu, c => new ClassedSpan('builder', c[1])],
+    [ /\[(contrema[iî]tres?|foremans?)\]/giu, c => new ClassedSpan('foreman', c[1])],
+    [ /\[(architecte?s?)\]/giu, c => new ClassedSpan('architect', c[1])],
+    [ /\[(ing[ée]nieurs?|engineers?)\]/giu, c => new ClassedSpan('engineer', c[1])],
+    [ /\[(archiviste?s?)\]/giu, c => new ClassedSpan('archivist', c[1])],
+    [ /\[(helpeu?rs?)\]/giu, c => new ClassedSpan('helper', c[1])],
+    [ /\[(d[ée]veloppeurs?|developers?)\]/giu, c => new ClassedSpan('developer', c[1])],
+    [ /\[(staffs?)\]/giu, c => new ClassedSpan('staff', c[1])],
+    [ /\[(fondat(?:eur|rice)|founder)\]/giu, c => new ClassedSpan('founder', c[1])]
   ];
 
   parse(text) {
