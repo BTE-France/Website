@@ -30,6 +30,30 @@ class Paragraph {
 
 }
 
+class UnorderedList {
+  entries;
+  constructor() {
+    this.entries = Array.from(arguments)
+  }
+  toHTML() {
+    return '<ul>' + this.entries.map(e => e.toHTML()).join('') + '</ul>';
+  }
+}
+
+class ListEntry {
+
+  children;
+
+  constructor() {
+    this.children = Array.from(arguments);
+  }
+
+  toHTML() {
+    return '<li>' + this.children.map(e => e.toHTML()).join(" ") + '</li>';
+  }
+
+}
+
 class RegularText {
   text;
 
@@ -115,7 +139,11 @@ class MarkdownParser {
     this.#lines = text.split("\n");
     let doc = [];
     while (this.#lines.length) {
-      doc.push(this.#parseParagraph());
+      if (this.#lines[0].startsWith(' - ')) {
+        doc.push(this.#parseUl());
+      } else {
+        doc.push(this.#parseParagraph());
+      }
     }
     return new MarkdownDocument(...doc);
   }
@@ -141,6 +169,7 @@ class MarkdownParser {
   #parseParagraph() {
     let elements = [];
     while (this.#lines.length) {
+      if (this.#isNextLineSpecial()) break;
       let line = this.#lines.shift();
       if (line.trim() === '') break;
       elements = elements.concat(this.parseText(line));
@@ -148,8 +177,36 @@ class MarkdownParser {
     return new Paragraph(...elements);
   }
 
+  #parseUl() {
+    let entries = [];
+    while (this.#lines[0] && this.#lines[0].startsWith(' - ')) {
+      entries.push(this.#parseUlEntry());
+    }
+    return new UnorderedList(...entries);
+  }
+
+  #parseUlEntry() {
+    let elements = [];
+    let first = true;
+    while (this.#lines.length) {
+      if (!first && this.#isNextLineSpecial()) break;
+      first = false;
+      let line = this.#lines.shift();
+      if (line.trim() === '') break;
+      elements = elements.concat(this.parseText(line.substring(3)));
+    }
+    return new ListEntry(...elements);
+  }
+
+  #isNextLineSpecial() {
+    let nextLine = this.#lines[0];
+    return nextLine.startsWith(' - ');
+  }
+
 }
 
 module.exports = {
   MarkdownParser: MarkdownParser
 }
+
+new MarkdownParser().parse(' - test\n - retest');

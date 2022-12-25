@@ -3,6 +3,11 @@
 p {
     margin: 0;
 }
+
+ul {
+    margin: 0;
+}
+
 .visitor {
     font-weight: bold;
     color: #797979;
