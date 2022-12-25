@@ -8,7 +8,7 @@
 <article class="illustrated-paragraph">
     <div class="article-content">
       <h3>{{ 'pages.maps.dynmap.title' | i18n }}</h3>
-      <p>{{ 'pages.maps.dynmap.description' | i18n }}</p>
+      <p>{{ 'pages.maps.dynmap.description' | i18n | lore | safe }}</p>
       <a class="button" href="https://map.btefrance.fr" target="_blank">{{ 'pages.maps.dynmap.link' | i18n }}</a>
     </div>
     <div class="illustration image-slideshow">
@@ -19,7 +19,7 @@
   <article class="illustrated-paragraph">
     <div class="article-content">
           <h3>{{ 'pages.maps.progress.title' | i18n }}</h3>
-          <p>{{ 'pages.maps.progress.description' | i18n }}</p>
+          <p>{{ 'pages.maps.progress.description' | i18n | lore | safe }}</p>
           <a class="button" href="https://www.google.com/maps/d/viewer?mid=17R3mouwkPRlzvkT4NKH1idmB9M9xTCcv&ll=46.70811424038858%2C2.034233844773002&z=3" target="_blank">{{ 'pages.maps.progress.link' | i18n }}</a>
     </div>
     <div class="illustration image-slideshow">

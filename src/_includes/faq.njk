@@ -15,26 +15,26 @@
         {% elif qa.question.en and locale == 'en' %}
             {{ qa.question.en }}
         {% elif qa.question.en %}
-            {{ qa.question.en }}
+            {{ qa.question.en}}
         {% elif qa.question.fr %}
             {{ qa.question.fr }}
         {% else %}
             {{ "Question missing" }}
         {% endif %}
         </h3>
-        <p class="faq-answer">
+        <div class="faq-answer">
             {% if qa.answer.fr and locale == 'fr' %}
-                {{ qa.answer.fr }}
+                {{ qa.answer.fr | lore | safe }}
             {% elif qa.answer.en and locale == 'en' %}
-                {{ qa.answer.en }}
+                {{ qa.answer.en | lore | safe }}
             {% elif qa.answer.en %}
-                {{ qa.answer.en }}
+                {{ qa.answer.en | lore | safe }}
             {% elif qa.answer.fr %}
-                {{ qa.answer.fr }}
+                {{ qa.answer.fr | lore | safe }}
             {% else %}
                 {{ "Answer missing" }}
             {% endif %}
-        </p>
+        </div>
       </article>
   {% endfor %}
 
