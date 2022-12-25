@@ -1,6 +1,7 @@
 const Nunjucks =  require("nunjucks");
 const i18n = require('eleventy-plugin-i18n');
 const translations = require("./src/_data/i18n")
+const markdown = require("./markdown");
 
 const desaccentify = s => {
     return s.replaceAll(/[éèêë]/g, 'e')
@@ -30,6 +31,8 @@ const localizeUrl = (path, locale) => {
     return path;
 };
 
+const lore = s => new markdown.MarkdownParser().parse(s).toHTML();
+
 module.exports = function(eleventyConfig) {
     let nunjucksEnvironment = new Nunjucks.Environment(
         new Nunjucks.FileSystemLoader("src/_includes")
@@ -37,6 +40,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addShortcode('url', localizeUrl)
     eleventyConfig.addFilter('desaccentify', desaccentify);
+    eleventyConfig.addFilter('lore', lore);
 
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.setLibrary("njk", nunjucksEnvironment);
