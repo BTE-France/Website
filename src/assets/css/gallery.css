@@ -28,10 +28,22 @@ main {
     box-shadow: 0 0 2em 0.25em rgba(0, 0, 0, 0.29);
 }
 
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
 .gallery-entry.gallery-loading {
     width: 45vw;
     aspect-ratio: 16/9;
-    background-color: rgba(0, 0, 0, 0.73);
+
+    background: linear-gradient(100deg, #1c1c1c, #3b3b3b, #1c1c1c);
+    animation: shine 1s infinite alternate ease 1s;
+    background-size: 200%;
 }
 
 .gallery-info {

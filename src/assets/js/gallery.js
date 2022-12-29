@@ -89,12 +89,12 @@ class GalleryEntry {
         if (width && height) {
             this.element.style.aspectRatio = width + "/" + height;
             if (width > height) {
-                this.element.style.width = width + "px";
+                this.element.style.width = "45vw";
             } else {
-                this.element.style.height = height + "px";
+                this.element.style.height = "50vh";
             }
         } else {
-            this.element.style.width = "1280px";
+            this.element.style.width = "45vw";
             this.element.style.aspectRatio = "16/9";
         }
     }
