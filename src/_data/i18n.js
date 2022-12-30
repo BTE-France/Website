@@ -100,11 +100,11 @@ module.exports = {
         en: "Data policy"
       },
       content: {
-        fr: "Ce site utilise les cookies pour proposer ses fonctionnalités de préférences utilisateur comme le mode sombre.\n" +
-            "Nous enregistrons certaines données de base comme les adresses IP et les pages visités pour des raisons de sécurité.\n" +
+        fr: "Ce site n'utilise aucun cookie. " +
+            "Nous enregistrons cependant certaines données de connexion élémentaires comme les adresses IP et les pages visités pour des raisons de sécurité. " +
             "Nous ne partageons en aucun cas ces données avec des tiers et ne les utiliserons jamais à des fins commerciales.",
-        en: "This website uses cookies to provide user preference functionalities like dark mode.\n" +
-            "We log basic data like IP addresses and visited web pages for security purposes.\n" +
+        en: "This website does not use any cookie. " +
+            "We nevertheless log basic connection data like IP addresses and visited web pages for security purposes. " +
             "We do not share such data with any third party and will never use it for commercial purposes."
       }
     },
@@ -190,7 +190,7 @@ module.exports = {
             "Si vous êtes motivés, vous êtes donc le bienvenu !",
           en: "BTE France is a community project whose goal is to rebuild the entirety of France in Minecraft. " +
             "We are constantly looking for volunteers to help us complete the biggest project Minecraft has ever seen. " +
-            "If you are motivated, you are welcome!"
+            "If you are motivated, you are welcome to join !"
         },
         button: {
           fr: "Nous rejoindre",
