@@ -43,6 +43,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter('lore', lore);
 
     eleventyConfig.addPassthroughCopy("src/assets");
+    eleventyConfig.addPassthroughCopy("src/.htaccess");
     eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 
     eleventyConfig.addPlugin(i18n, {

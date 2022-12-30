@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteCond %{HTTP_HOST} ^(www\.|beta\.)?btefrance\.fr$ [NC]
+RewriteRule ^/?$ /fr [R=302,L]
