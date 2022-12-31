@@ -42,6 +42,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter('desaccentify', desaccentify);
     eleventyConfig.addFilter('lore', lore);
 
+    eleventyConfig.ignores.add("src/_includes/");
+    eleventyConfig.ignores.add("src/_data/");
+
     eleventyConfig.addPassthroughCopy("src/assets");
     eleventyConfig.addPassthroughCopy("src/.htaccess");
     eleventyConfig.setLibrary("njk", nunjucksEnvironment);
