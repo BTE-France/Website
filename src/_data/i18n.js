@@ -345,31 +345,55 @@ module.exports = {
               "il vous permet de :\n" +
               " - Visiter le serveur grâce à `/visite` (pour nos plus belles constructions) et `/warps` (tous nos warps)\n" +
               " - Poser des questions\n" +
-              "NB: si il n’y a pas de warp, c’est qu’il n’y a généralement aucune construction dans cette ville."
+              "NB : si il n’y a pas de warp, c’est qu’il n’y a généralement aucune construction dans cette ville.",
+            en: "[Visitor]: this is the default rank you will get when joining the Minecraft server for the first time. " +
+              "It lets you:\n" +
+              " - Visit the server with `/visite` (for our most notable constructions) and `/warps` (for all warps).\n" +
+              " - Ask any question\n" +
+              "NB: if there is no warp to go somewhere, it usually means that there isn't anything built there."
           },
           beginner: {
             fr: "[Débutant] : le grade Débutant est utile si vous souhaitez construire sur le serveur. " +
-              "Il vous suffit de le demander au staff présent sur le serveur Minecraft pour l’obtenir, " +
-              "il vous permet de :\n" +
+              "Il vous suffit de le demander au staff présent sur le serveur Minecraft pour l’obtenir." +
+              "\n\n" +
+              "Il vous permet de :\n" +
               " - construire des bâtiments\n" +
               " - aider d’autres personnes\n" +
               "NB : avant de construire sur un terrain, vous devez le signaler sur Discord dans " +
-              "<#694003889506091100/694003889506091103,french-chat>."
+              "<#694003889506091100/694003889506091103,french-chat>.",
+            en: "[Beginner]/[Débutant]: you get this rank when you want to start building on the server. " +
+              "You simply need to ask a staff member for it when connected to the Minecraft server in order to get it." +
+              "\n\n" +
+              "It lets you:\n" +
+              " - build\n" +
+              " - help other people\n" +
+              "NB: you need to let the staff known where you are building by posting a message in <#694003889506091100/694003889506091103,french-chat> " +
+              "before starting your build."
           },
           builder: {
-            fr: "[Builder] : le grade Builder certifie que vous êtes un Builder officiel du projet BuildTheEarth.net. " +
+            fr: "[Builder] : le grade Builder certifie que vous êtes un Builder officiel du projet [BuildTheEarth.net](https://buildtheearth.net/). " +
               "Pour faire votre candidature de Builder officiel, " +
-              "un guide est disponible sur Discord dans <#694003889506091100/810512822928670780,❔・comment-rejoindre> sur Discord) "
+              "un guide est disponible sur Discord dans <#694003889506091100/810512822928670780,❔・comment-rejoindre> sur Discord) ",
+            en: "[Builder]: the builder rank certifies that you are an official builder on [BuildTheEarth.net](https://buildtheearth.net/)." +
+              "A guide is available in <#694003889506091100/735892858128695367,how-to-join> to help you apply."
           },
           foreman: {
             fr: "[Contremaître] : le grade Contremaître est honorifique, vous n’aurez pas de permission en plus, " +
               "cependant il traduit votre investissement dans le serveur." +
               "\n\n" +
               "Pour l’obtenir il faudra :\n" +
-              " - respecter l’échelle 1 bloc pour 1 mètre en s’aidant de Google Earth Pro et Google Maps\n" +
+              " - Respecter les règles de construction de Build The Earth\n" +
               " - construire au moins 25 bâtiments ou bien son équivalent (seul un staff pourra le juger)\n" +
               " - introduire suffisamment de détails dans ses constructions (trappes, boutons, mix de blocs, bonne utilisation des têtes customs, végétations autour des constructions)\n" +
-              " - avoir un langage correct."
+              " - avoir un langage correct.",
+            en: "[Foreman]/[Contremaître]: this rank is given as a recognition of your investment on the server " +
+              "and does not grant you any additional permissions." +
+              "\n\n" +
+              "You have to meet certain criteria in order to get it:\n" +
+              " - Respecting the Build The Earth building guidelines,\n" +
+              " - Having built at least 25 buildings or the equivalent,\n" +
+              " - Having enough details in your builds (make a good use of buttons, mixes, trapdoors, vegetation etc)\n" +
+              " - Speaking properly"
           },
           architect: {
             fr: "[Architecte] : tout comme Contremaître, Architecte est honorifique, " +
@@ -378,7 +402,14 @@ module.exports = {
               " - vous avez réalisé un bâtiment d'intérêt avec des détails pertinents (château, église, mairie…)\n" +
               " - vous postez votre avancée de temps en temps sur le Discord" +
               "(<#694003889506091100/694325296106569748,🌍・showcase> ou <#694003889506091100/700757392157048892,🤝・progrès・aide-build> )\n" +
-              " - vous êtes présent sur le serveur BTE France depuis au moins un mois\n"
+              " - vous êtes présent sur le serveur BTE France depuis au moins un mois\n",
+            en: "[Architect]: just like [Foreman], this rank does not grant you any additional permissions, " +
+              "it directly follows [Foreman], and comes with a few additional conditions:\n" +
+              " - your city or village has enough progress, and your builds are well detailed,\n" +
+              " - you built at least one important building (castle, church, town hall)\n" +
+              " - you keep the community informed of your progress on Discord " +
+              "(<#694003889506091100/694325296106569748,🌍・showcase> or <#694003889506091100/700757392157048892,🤝・progrès・aide-build> ),\n" +
+              " - You have been playing on BTE France for at least a month"
           },
           engineer: {
             fr: "[Ingénieur] : le grade Ingénieur est le plus haut que vous pourrez atteindre sur le serveur hormis le staff, " +
@@ -389,7 +420,8 @@ module.exports = {
               "vous avez démontré que vous êtes quelqu'un de confiance, " +
               "vous aidez aussi vos camarades quand ceux-ci ont besoin d’aide (ne construisez par leur village non plus) " +
               "et vous faites désormais partie à part entière de l’histoire de BTE France. " +
-              "Ce grade ne se demande pas vraiment, il vient à vous."
+              "Ce grade ne se demande pas vraiment, il vient à vous.",
+            en: "[Engineer]: this is the most important rank you can get besides staff ranks."
           }
         },
         staff: {
