@@ -7,7 +7,7 @@ module.exports = [
     answer: {
       fr: "L'adresse IP du serveur est `btefrance.fr`. " +
         "Vous pouvez vous connecter avec Minecraft vanilla 1.12.2, " +
-        "mais nous vous recommandons fortement d'installer notre modpack pour bénéficier de la meilleur " +
+        "mais nous vous recommandons fortement d'installer notre modpack pour bénéficier de la meilleure " +
         "expérience possible. " +
         "**Vous devez également posséder une copie légitime de Minecraft pour jouer**, " +
         "les versions dites 'crackées' ne sont pas tolérées sur le serveur." +
@@ -93,11 +93,11 @@ module.exports = [
     answer: {
       fr: "Nous utilisons le mod [Terraplusplus](https://www.curseforge.com/minecraft/mc-mods/terraplusplus) " +
         "pour générer une réplique du monde réel dans Minecraft. " +
-        "Ce dernier se base sur les informations altimétrique de [Institut national de l'information géographique et forestière](https://www.ign.fr/) " +
+        "Ce dernier se base sur les informations altimétrique de l'[Institut national de l'information géographique et forestière](https://www.ign.fr/) " +
         "ainsi que sur la base de donnée géographique libre [OpenStreetMap](https://www.openstreetmap.org)." +
         "\n\n" +
         "Nous utilisons également le mod [CubicChunks](https://www.curseforge.com/minecraft/mc-mods/opencubicchunks) " +
-        "qui ne permet d'étendre la hauteur maximale de construction de Minecraft pour la rendre infinie. " +
+        "qui permet d'étendre la hauteur maximale de construction de Minecraft pour la rendre infinie. " +
         "Le mont Blanc est donc bien présent sur BTE France !" +
         "\n\n" +
         "Pour faire correspondre la surface sphérique de la Terre avec le monde plat de Minecraft, " +
