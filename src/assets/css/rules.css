@@ -284,23 +284,23 @@ main {
 }
 
 .discord-rules .content-box ul li::before {
-    background-image: url("https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/dot_ou0iad.webp");
+    background-image: url("/assets/img/dot_ou0iad.webp");
 }
 
 .discord-rules .content-box ul li ul li::before {
-    background-image: url("https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/dot_vide_tgxwba.webp");
+    background-image: url("/assets/img/dot_vide_tgxwba.webp");
 }
 
 .minecraft-rules .content-box ul li::before {
-    background-image: url("https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/dot_ou0iad.webp");
+    background-image: url("/assets/img/dot_ou0iad.webp");
 }
 
 .minecraft-rules .content-box ul li ul li::before {
-    background-image: url("https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/dot_vide_tgxwba.webp");
+    background-image: url("/assets/img/dot_vide_tgxwba.webp");
 }
 
 .contrib-rules .content-box ul li::before {
-    background-image: url("https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/jdot_i4wq1h.webp");
+    background-image: url("/assets/img/jdot_i4wq1h.webp");
 }
 
 .subsection ul {
