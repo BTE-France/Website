@@ -1,22 +1,22 @@
 module.exports = {
   banner: {
-    fr: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/r%C3%A8gles_wmqnn0.png",
-    en: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425729/rules_n248dt.png"
+    fr: "/assets/img/règles_wmqnn0.png",
+    en: "/assets/img/rules_n248dt.png"
   },
   icons: {
-    minecraft: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/minecraft_emoji_y3ycso.webp",
-    contributions: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/evaluateur_napjp4.webp",
-    region: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/gerant_region_hkmfvd.webp"
+    minecraft: "/assets/img/minecraft_emoji_y3ycso.webp",
+    contributions: "/assets/img/evaluateur_napjp4.webp",
+    region: "/assets/img/gerant_region_hkmfvd.webp"
   },
   servers: [
     {
       name: "BTE France",
-      icon: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425860/btefrance_fueu3t.png",
+      icon: "/assets/img/logo.png",
       invite: "https://discord.gg/pzaEbCWxA9"
     },
     {
       name: "BuildTheEarth.net",
-      icon: "https://res.cloudinary.com/azlwxkqy/image/upload/v1784425859/bte_biiosu.png",
+      icon: "/assets/img/bte_biiosu.png",
       invite: "https://discord.gg/ZVwGpwY7wW"
     }
   ],
