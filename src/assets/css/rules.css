@@ -12,6 +12,7 @@ main {
     text-align: center;
     padding: 1.5em;
     border-radius: 0 1em 1em 0;
+    box-sizing: border-box;
 }
 
 .rules-header::before {
@@ -27,12 +28,75 @@ main {
     color: white;
 }
 
+.rules-banner-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0.5em 0 1.5em;
+}
+
+.rules-banner {
+    max-width: 90vw;
+    width: 42em;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
+}
+
+.discord-invite-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+    width: 100%;
+    margin: 0 0 2em;
+}
+
+.discord-invite-card {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: #f4f4f6;
+    border-radius: 1em;
+    padding: 1em 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
+}
+
+.discord-invite-card .server-icon {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.discord-invite-card .server-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-right: 0.5em;
+    color: #1a1a1e;
+}
+
+.discord-invite-card .join-btn {
+    background-color: #5865F2;
+    color: white;
+    padding: 0.5em 1.2em;
+    border-radius: 0.5em;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.discord-invite-card .join-btn:hover {
+    background-color: #4752c4;
+    text-decoration: none;
+}
+
 .rules-column {
     width: 35em;
     max-width: 40vw;
     border-radius: 1em;
     box-shadow: rgba(0, 0, 0, 0.61) 0 0 1em 0;
     margin: 1em auto 3rem auto;
+    overflow: hidden;
 }
 
 .rules-column .content-box {
@@ -40,18 +104,48 @@ main {
 }
 
 .rules-column h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
     text-align: center;
     color: white;
     width: 100%;
     margin: 0;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em 1.5em;
     border-radius: 0.75em 0.75em 0 0;
     background-color: #606060;
+    box-sizing: border-box;
 }
 
-.rules-column li {
-    padding-bottom: 1em;
+.rules-heading-icon {
+    width: 1.3em;
+    height: 1.3em;
+    flex-shrink: 0;
+}
+
+.subsection-icon {
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.4em;
+    vertical-align: middle;
+}
+
+.rules-column .subsection {
+    margin-bottom: 1.5em;
+}
+
+.rules-column .subsection:last-child {
+    margin-bottom: 0;
+}
+
+.rules-column .subsection h4 {
+    margin: 0 0 0.75em;
+    font-family: RobotoSlab, sans-serif;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4em;
 }
 
 .rules-dangerous {
@@ -77,9 +171,30 @@ main {
     margin-left: 3em;
 }
 
+.rules-info a,
+.rules-email-link {
+    color: #00a8fc;
+    font-weight: bold;
+}
+
 .rules-info::before {
     content: "i";
     background-color: #425eea;
+}
+
+.rules-footnote {
+    color: #4a4a4a;
+    background-color: #f2f2f4;
+    position: relative;
+    font-style: italic;
+    margin-left: 3em;
+    margin-bottom: 3em;
+}
+
+.rules-footnote::before {
+    content: "🔺";
+    background-color: #8c8c94;
+    font-size: 1.3em;
 }
 
 .discord-rules {
@@ -108,8 +223,84 @@ main {
     color: #00b400;
 }
 
-.subsection {
-    padding-bottom: 2em;
+.contrib-rules {
+    color: #7a4b00;
+    background-color: #fff3da;
+}
+
+.contrib-rules h3 {
+    background-color: #b5790a;
+}
+
+.contrib-rules a {
+    color: #b5790a;
+}
+
+.discord-rules .content-box ul,
+.minecraft-rules .content-box ul,
+.contrib-rules .content-box ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0.2em;
+}
+
+.discord-rules .content-box ul li,
+.minecraft-rules .content-box ul li,
+.contrib-rules .content-box ul li {
+    position: relative;
+    padding-left: 1.7em;
+    padding-bottom: 1em;
+}
+
+.discord-rules .content-box ul li::before,
+.minecraft-rules .content-box ul li::before,
+.contrib-rules .content-box ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 1em;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.discord-rules .content-box ul li ul,
+.minecraft-rules .content-box ul li ul {
+    margin-top: 0.5em;
+}
+
+.discord-rules .content-box ul li ul li,
+.minecraft-rules .content-box ul li ul li {
+    padding-left: 1.5em;
+    padding-bottom: 0.4em;
+}
+
+.discord-rules .content-box ul li ul li::before,
+.minecraft-rules .content-box ul li ul li::before {
+    width: 0.8em;
+    height: 0.8em;
+    top: 0.25em;
+}
+
+.discord-rules .content-box ul li::before {
+    background-image: url("/assets/img/dot_ou0iad.webp");
+}
+
+.discord-rules .content-box ul li ul li::before {
+    background-image: url("/assets/img/dot_vide_tgxwba.webp");
+}
+
+.minecraft-rules .content-box ul li::before {
+    background-image: url("/assets/img/dot_ou0iad.webp");
+}
+
+.minecraft-rules .content-box ul li ul li::before {
+    background-image: url("/assets/img/dot_vide_tgxwba.webp");
+}
+
+.contrib-rules .content-box ul li::before {
+    background-image: url("/assets/img/jdot_i4wq1h.webp");
 }
 
 .subsection ul {
@@ -125,6 +316,24 @@ main {
 
     .rules-column {
         max-width: 90vw;
+    }
+
+    .rules-header {
+        margin-left: 2.5em;
+        width: auto;
+        max-width: calc(100vw - 3.5em);
+    }
+
+    .rules-header::before {
+        width: 0.9em;
+        left: -0.9em;
+        font-size: 1.6em;
+    }
+
+    .discord-invite-card {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
     }
 
 }

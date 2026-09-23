@@ -1,4 +1,4 @@
-const escapeHTML = s => s.replaceAll('&', '&amp')
+const escapeHTML = s => s.replaceAll('&', '&amp;')
                          .replaceAll('<', '&lt;')
                          .replaceAll('>', '&gt;')
                          .replaceAll('"', '&quot;');
@@ -77,7 +77,7 @@ class Link {
   }
 
   toHTML() {
-    return '<a href="' + this.href + '" target="_blank">' + escapeHTML(this.text) + '</a>';
+    return '<a href="' + this.href + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(this.text) + '</a>';
   }
 }
 
@@ -92,22 +92,22 @@ class DiscordChannel {
   }
 
   toHTML() {
-    return '<a class="discord-channel" href="https://discord.com/channels/' + this.channelId + '">' + escapeHTML(this.channelName) + '</a>'
+    return '<a class="discord-channel" href="https://discord.com/channels/' + this.channelId + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(this.channelName) + '</a>'
   }
 
 }
 
-class ClassedSpan { // A span with a specific class
+class ClassedSpan { // A span wrapping already-parsed inline children
   cssClass;
-  text;
+  children;
 
-  constructor(cssClass, text) {
+  constructor(cssClass, children) {
     this.cssClass = cssClass;
-    this.text = text;
+    this.children = children;
   }
 
   toHTML() {
-    return '<span class="' + this.cssClass + '">' + escapeHTML(this.text) + '</span>';
+    return '<span class="' + this.cssClass + '">' + this.children.map(c => c.toHTML()).join('') + '</span>';
   }
 
 }
@@ -117,22 +117,23 @@ class MarkdownParser {
   #lines;
 
   #textPatterns = [
-    [ /\*\*([^*]*)\*\*/g,  s => new ClassedSpan('emphasis', s[1])],
-    [ /`([^`]*)`/g,  s => new ClassedSpan('technical', s[1])],
+    [ /\*\*([^*]*)\*\*/g,  s => new ClassedSpan('emphasis', this.parseText(s[1]))],
+    [ /`([^`]*)`/g,  s => new ClassedSpan('technical', [ new RegularText(s[1]) ])],
     [ /\[([^\]]+)\]\(([^\)]+)\)/g, c => new Link(c[1], c[2])],
     [ /<#([\d/]+),([^>]+)>/g, c => new DiscordChannel(c[1], c[2])],
-    [ /@([^@\s]+)/g, c => new ClassedSpan('discord-user', c[1])],
-    [ /\[(visit(?:eurs?|ors?))]/gi, c => new ClassedSpan('visitor', c[1])],
-    [ /\[(d[ée]butants?|begginers?)\]/giu, c => new ClassedSpan('beginner', c[1])],
-    [ /\[(buildeu?rs?)\]/giu, c => new ClassedSpan('builder', c[1])],
-    [ /\[(contrema[iî]tres?|foremans?)\]/giu, c => new ClassedSpan('foreman', c[1])],
-    [ /\[(architecte?s?)\]/giu, c => new ClassedSpan('architect', c[1])],
-    [ /\[(ing[ée]nieurs?|engineers?)\]/giu, c => new ClassedSpan('engineer', c[1])],
-    [ /\[(archiviste?s?)\]/giu, c => new ClassedSpan('archivist', c[1])],
-    [ /\[(helpeu?rs?)\]/giu, c => new ClassedSpan('helper', c[1])],
-    [ /\[(d[ée]veloppeurs?|developers?)\]/giu, c => new ClassedSpan('developer', c[1])],
-    [ /\[(staffs?)\]/giu, c => new ClassedSpan('staff', c[1])],
-    [ /\[(fondat(?:eur|rice)|founder)\]/giu, c => new ClassedSpan('founder', c[1])]
+    [ /@([^@\s]+)/g, c => new ClassedSpan('discord-user', [ new RegularText(c[1]) ])],
+    [ /\[(visit(?:eurs?|ors?))]/gi, c => new ClassedSpan('visitor', [ new RegularText(c[1]) ])],
+    [ /\[(d[ée]butants?|begginers?)\]/giu, c => new ClassedSpan('beginner', [ new RegularText(c[1]) ])],
+    [ /\[(buildeu?rs?)\]/giu, c => new ClassedSpan('builder', [ new RegularText(c[1]) ])],
+    [ /\[(contrema[iî]tres?|foremans?)\]/giu, c => new ClassedSpan('foreman', [ new RegularText(c[1]) ])],
+    [ /\[(architecte?s?)\]/giu, c => new ClassedSpan('architect', [ new RegularText(c[1]) ])],
+    [ /\[(ing[ée]nieurs?|engineers?)\]/giu, c => new ClassedSpan('engineer', [ new RegularText(c[1]) ])],
+    [ /\[(archiviste?s?)\]/giu, c => new ClassedSpan('archivist', [ new RegularText(c[1]) ])],
+    [ /\[(helpeu?rs?)\]/giu, c => new ClassedSpan('helper', [ new RegularText(c[1]) ])],
+    [ /\[(supports?)\]/giu, c => new ClassedSpan('helper', [ new RegularText(c[1]) ])],
+    [ /\[(d[ée]veloppeurs?|developers?)\]/giu, c => new ClassedSpan('developer', [ new RegularText(c[1]) ])],
+    [ /\[(staffs?)\]/giu, c => new ClassedSpan('staff', [ new RegularText(c[1]) ])],
+    [ /\[(fondat(?:eur|rice)|founder)\]/giu, c => new ClassedSpan('founder', [ new RegularText(c[1]) ])]
   ];
 
   parse(text) {
@@ -149,20 +150,32 @@ class MarkdownParser {
   }
 
   parseText(text) {
-    let pattern = this.#textPatterns.find(p => p[0].test(text));
-    if (pattern) {
-      let regex = pattern[0];
-      regex.lastIndex = 0; // Reset before we rerun the search with exec to get the capture groups
-      let match = regex.exec(text);
-      let result = [ pattern[1](match) ];
-      let left = this.parseText(text.substring(0, match.index));
-      let right = this.parseText(text.substring(match.index + match[0].length));
-      if (left) result = left.concat(result);
-      if (right) result = result.concat(right);
-      return result;
-    } else {
+    if (text === '') return [];
+
+    let best = null;
+    for (const pattern of this.#textPatterns) {
+      const regex = pattern[0];
+      regex.lastIndex = 0;
+      const match = regex.exec(text);
+      if (match && (best === null || match.index < best.match.index)) {
+        best = { match, factory: pattern[1] };
+      }
+    }
+
+    if (!best) {
       return [ new RegularText(text) ];
     }
+
+    const { match, factory } = best;
+    const node = factory(match);
+    const before = text.substring(0, match.index);
+    const after = text.substring(match.index + match[0].length);
+
+    return [
+      ...this.parseText(before),
+      node,
+      ...this.parseText(after)
+    ];
   }
 
 
@@ -208,5 +221,3 @@ class MarkdownParser {
 module.exports = {
   MarkdownParser: MarkdownParser
 }
-
-new MarkdownParser().parse(' - test\n - retest');

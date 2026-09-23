@@ -271,36 +271,74 @@ module.exports = {
           en: "Rules"
         },
         warning: {
-          fr: "**En interagissant avec notre notre communauté, " +
-            "vous acceptez de respecter les règles suivantes.** " +
-            "Notre équipe de modérateurs fera tout son possible pour veiller à ce qu'elles soient appliquées " +
-            "afin que BTE France reste un endroit agréable pour la communauté. " +
-            "Par conséquent, le bon sens prime et ces règles peuvent être interprétées comme un guide, " +
-            "et non littéralement. Tenter de contourner les règles n'est par conséquent pas acceptable.",
-          en: "**By engaging in our community, you agree to abid by the following rules.** " +
-            "Our staff team will actively enforce them to ensure BTE France remains an enjoyable place for everyone. " +
-            "The staff team reserves itself the right to take any action it considers necessary to achieve that goal. " +
-            "As such, common sense applies first and these rules should be interpreted as guidelines and not literally. " +
-            "Exploiting loopholes is therefore not acceptable."
+          fr: "**En rejoignant ou en utilisant nos serveurs Discord et Minecraft, vous acceptez de respecter l'intégralité du règlement ci-dessous.** " +
+            "Notre équipe de modération se réserve le droit de sanctionner tout comportement jugé nuisible à la communauté. " +
+            "Le bon sens prime sur la lettre du texte : ce règlement doit être interprété comme un guide et non comme une liste exhaustive, " +
+            "et toute tentative de contournement sera traitée comme une infraction à part entière.",
+          en: "**By joining or using our Discord and Minecraft servers, you agree to abide by the entirety of the rules below.** " +
+            "Our moderation team reserves the right to sanction any behaviour deemed harmful to the community. " +
+            "Common sense prevails over the letter of the text: these rules should be interpreted as guidelines, not as an exhaustive list, " +
+            "and any attempt to work around them will be treated as a violation in its own right."
+        },
+        notice: {
+          fr: "Ce règlement peut être modifié à tout moment et sans préavis. Toute utilisation de nos serveurs implique l'acceptation de sa version la plus récente ; vous serez informés de chaque mise à jour importante.",
+          en: "These rules may be updated at any time without notice. Any use of our servers implies acceptance of its most recent version; you will be notified of any significant change."
+        },
+        appeals: {
+          fr: "Vous pouvez contester une sanction en ouvrant un ticket ou en contactant un membre du [Staff] en message privé, ou par mail à",
+          en: "You can appeal a sanction by opening a ticket or contacting a [Staff] member in DM, or by email at"
         },
         info: {
-          fr: "Si vous avez la moindre question, vous pouvez consulter les canaux " +
-            "<#694003889506091100/810512822928670780,❔・comment-rejoindre> et " +
-            "<#694003889506091100/821291710993661992,📍・ip> sur Discord, ils devraient couvrir la majorité de vos questions. " +
-            "Dans le cas contraire, vous pouvez faire appel aux [Helpers] et aux [Staff] sur Discord comme en jeu.",
-          en: "If you have any question, checkout the <#694003889506091100/735892858128695367,🇬🇧・how-to-join> and " +
-            "<#694003889506091100/821291710993661992,📍・ip> channels on Discord, " +
-            "the information there should cover about everything. " +
-            "If it fails to answer your question, our [Helpers] and [Staff] are available " +
-            "both on Discord and in-game and will gladly guide you. "
+          fr: "Si vous avez la moindre question, vous pouvez consulter le canal " +
+              "<#694003889506091100/1128437187554328646,🤝・débutez-ici> sur Discord, il devrait couvrir la majorité de vos questions. " +
+              "Dans le cas contraire, vous pouvez faire appel au [Support] et au [Staff] sur Discord comme en jeu.",
+          en: "If you have any question, checkout the " +
+              "<#694003889506091100/1147987762436395080,#🤝・start-here> channel on Discord, " +
+              "the information there should cover about everything. " +
+              "If it fails to answer your question, our [Support] and [Staff] are available " +
+              "both on Discord and in-game and will gladly guide you."
+        },
+        discordSection: {
+          fr: "Rejoindre nos serveurs Discord",
+          en: "Join our Discord servers"
+        },
+        joinButton: {
+          fr: "Rejoindre",
+          en: "Join"
         },
         discord: {
-          fr: "Règlement du serveur Discord",
-          en: "Discord server rules"
+          fr: "Règlement général & communication",
+          en: "General rules & communication"
         },
         minecraft: {
-          fr: "Règlement du serveur Minecraft",
-          en: "Minecraft server rules"
+          fr: "Règlement Minecraft",
+          en: "Minecraft rules"
+        },
+        contributions: {
+          fr: "Contributions & droits d'utilisation",
+          en: "Contributions & usage rights"
+        },
+        sections: {
+          general: {
+            fr: "Règles générales",
+            en: "General rules"
+          },
+          communication: {
+            fr: "Communication & contenu",
+            en: "Communication & content"
+          },
+          construction: {
+            fr: "Construction",
+            en: "Construction"
+          },
+          sensitiveAreas: {
+            fr: "Zones & projets sensibles",
+            en: "Sensitive areas & projects"
+          },
+          technical: {
+            fr: "Technique & stabilité",
+            en: "Technical & stability"
+          }
         }
       },
       ranks: {

@@ -1,103 +1,135 @@
 {% extends 'base.njk' %}
 
+{% macro ruleList(items, locale) %}
+<ul>
+  {% for rule in items %}
+    <li>{{ (rule[locale] or rule.fr) | lore | safe }}</li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro sectionTitle(icon, key) %}
+<img class="rules-heading-icon" src="{{ icon }}" alt="">
+<span>{{ key | i18n }}</span>
+{% endmacro %}
+
 {% block pageStyles %}
   <link rel="stylesheet" href="/assets/css/rules.css" type="text/css">
 {% endblock %}
 
 {% block main %}
 <h2 id="rules">{{ 'pages.rules.rules.title' | i18n | desaccentify }}</h2>
-  <article class="rules-header rules-dangerous">
-    {{ 'pages.rules.rules.warning' | i18n({ email: contacts.email }) | lore | safe }}
-  </article>
-  <article class="rules-header rules-info">
-    {{ 'pages.rules.rules.info' | i18n | lore | safe }}
-  </article>
-  <article class="rules-column discord-rules">
-    <h3>{{ 'pages.rules.rules.discord' | i18n | lore | safe }}</h3>
-    <div class="content-box">
-      <ol>
-        {% for rule in rules.discord %}
-            <li>
-                {% if rule.fr and locale == 'fr' %}
-                    {{ rule.fr | lore | safe }}
-                {% elif rule.en and locale == 'en' %}
-                    {{ rule.en | lore | safe }}
-                {% elif rule.en %}
-                    {{ rule.en | lore | safe }}
-                {% elif rule.fr %}
-                    {{ rule.fr | lore | safe }}
-                {% else %}
-                    {{ "Rule missing" }}
-                {% endif %}
-            </li>
-        {% endfor %}
-      </ol>
+
+<article class="rules-header rules-dangerous">
+  {{ 'pages.rules.rules.warning' | i18n | lore | safe }}
+</article>
+<article class="rules-header rules-info">
+  {{ 'pages.rules.rules.appeals' | i18n | lore | safe }}
+  <a class="rules-email-link" href="mailto:{{ contacts.email }}">{{ contacts.email }}</a>.
+</article>
+<article class="rules-header rules-info">
+  {{ 'pages.rules.rules.info' | i18n | lore | safe }}
+</article>
+
+<div class="rules-banner-wrapper">
+  <img class="rules-banner" src="{{ rules.banner[locale] or rules.banner.fr }}" alt="{{ 'pages.rules.rules.title' | i18n }}">
+</div>
+
+<div class="discord-invite-section">
+  {% for server in rules.servers %}
+    <div class="discord-invite-card">
+      <img class="server-icon" src="{{ server.icon }}" alt="{{ server.name }}">
+      <span class="server-name">{{ server.name }}</span>
+      <a class="join-btn" href="{{ server.invite }}" target="_blank" rel="noopener">{{ 'pages.rules.rules.joinButton' | i18n }}</a>
     </div>
-  </article>
-  <article class="rules-column minecraft-rules">
-    <h3>{{ 'pages.rules.rules.minecraft' | i18n | lore | safe }}</h3>
-    <div class="content-box">
-      <ol>
-          {% for rule in rules.minecraft %}
-              <li>
-                  {% if rule.fr and locale == 'fr' %}
-                      {{ rule.fr | lore | safe }}
-                  {% elif rule.en and locale == 'en' %}
-                      {{ rule.en | lore | safe }}
-                  {% elif rule.en %}
-                      {{ rule.en | lore | safe }}
-                  {% elif rule.fr %}
-                      {{ rule.fr | lore | safe }}
-                  {% else %}
-                      {{ "Rule missing" }}
-                  {% endif %}
-              </li>
-          {% endfor %}
-      </ol>
+  {% endfor %}
+</div>
+
+<article class="rules-column discord-rules">
+  <h3>{{ sectionTitle("/assets/img/social/discord-color.svg", 'pages.rules.rules.discord') }}</h3>
+  <div class="content-box">
+    <div class="subsection">
+      <h4>{{ 'pages.rules.rules.sections.general' | i18n }}</h4>
+      {{ ruleList(rules.discord.general, locale) }}
     </div>
-  </article>
-  <h2 id="ranks">{{ 'pages.rules.ranks.title' | i18n }}</h2>
-  <article class="rules-header rules-info">
-    {{ 'pages.rules.ranks.info' | i18n | lore | safe }}
-  </article>
-  <article class="rules-column">
-    <h3>{{ 'pages.rules.ranks.title' | i18n | lore | safe }}</h3>
-    <div class="content-box">
-      <div class="subsection">
-        {{ 'pages.rules.ranks.players.visitor' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.players.beginner' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.players.builder' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.players.foreman' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.players.architect' | i18n | lore | safe }}
-      </div>
-      <div>
-        {{ 'pages.rules.ranks.players.engineer' | i18n | lore | safe }}
-      </div>
+    <div class="subsection">
+      <h4>{{ 'pages.rules.rules.sections.communication' | i18n }}</h4>
+      {{ ruleList(rules.discord.communication, locale) }}
     </div>
-  </article>
-  <article class="rules-column">
-    <h3>Staff ranks</h3>
-    <div class="content-box">
-      <div class="subsection">
-        {{ 'pages.rules.ranks.staff.archivist' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.staff.helper' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.staff.developer' | i18n | lore | safe }}
-      </div>
-      <div class="subsection">
-        {{ 'pages.rules.ranks.staff.staff' | i18n | lore | safe }}
-      </div>
+  </div>
+</article>
+
+<article class="rules-column minecraft-rules">
+  <h3>{{ sectionTitle(rules.icons.minecraft, 'pages.rules.rules.minecraft') }}</h3>
+  <div class="content-box">
+    <div class="subsection">
+      <h4>{{ 'pages.rules.rules.sections.construction' | i18n }}</h4>
+      {{ ruleList(rules.minecraft.construction, locale) }}
     </div>
-  </article>
+    <div class="subsection">
+      <h4><img class="subsection-icon" src="{{ rules.icons.region }}" alt="">{{ 'pages.rules.rules.sections.sensitiveAreas' | i18n }}</h4>
+      {{ ruleList(rules.minecraft.sensitiveAreas, locale) }}
+    </div>
+    <div class="subsection">
+      <h4>{{ 'pages.rules.rules.sections.technical' | i18n }}</h4>
+      {{ ruleList(rules.minecraft.technical, locale) }}
+    </div>
+  </div>
+</article>
+
+<article class="rules-column contrib-rules">
+  <h3>{{ sectionTitle(rules.icons.contributions, 'pages.rules.rules.contributions') }}</h3>
+  <div class="content-box">
+    {{ ruleList(rules.contributions, locale) }}
+  </div>
+</article>
+
+<article class="rules-header rules-footnote">
+  {{ 'pages.rules.rules.notice' | i18n | lore | safe }}
+</article>
+
+<h2 id="ranks">{{ 'pages.rules.ranks.title' | i18n }}</h2>
+<article class="rules-header rules-info">
+  {{ 'pages.rules.ranks.info' | i18n | lore | safe }}
+</article>
+<article class="rules-column">
+  <h3>{{ 'pages.rules.ranks.players.title' | i18n }}</h3>
+  <div class="content-box">
+    <div class="subsection">
+      {{ 'pages.rules.ranks.players.visitor' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.players.beginner' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.players.builder' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.players.foreman' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.players.architect' | i18n | lore | safe }}
+    </div>
+    <div>
+      {{ 'pages.rules.ranks.players.engineer' | i18n | lore | safe }}
+    </div>
+  </div>
+</article>
+<article class="rules-column">
+  <h3>Staff ranks</h3>
+  <div class="content-box">
+    <div class="subsection">
+      {{ 'pages.rules.ranks.staff.archivist' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.staff.helper' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.staff.developer' | i18n | lore | safe }}
+    </div>
+    <div class="subsection">
+      {{ 'pages.rules.ranks.staff.staff' | i18n | lore | safe }}
+    </div>
+  </div>
+</article>
 {% endblock %}
